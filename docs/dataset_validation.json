@@ -1,0 +1,67 @@
+[
+  {
+    "group": "mlp300_binary_repeat30",
+    "x_equal": true,
+    "y_equal": true,
+    "new_shape": [
+      2500,
+      14
+    ],
+    "saved_shape": [
+      2500,
+      14
+    ]
+  },
+  {
+    "group": "mlp300_pattern_repeat30",
+    "x_equal": true,
+    "y_equal": true,
+    "new_shape": [
+      2500,
+      14
+    ],
+    "saved_shape": [
+      2500,
+      14
+    ]
+  },
+  {
+    "group": "mlp_mnist_arithmetic_repeat30",
+    "x_equal": true,
+    "y_equal": true,
+    "new_shape": [
+      2500,
+      1568
+    ],
+    "saved_shape": [
+      2500,
+      1568
+    ]
+  },
+  {
+    "group": "transformer_binary_repeat30",
+    "x_equal": true,
+    "y_equal": true,
+    "new_shape": [
+      2500,
+      14
+    ],
+    "saved_shape": [
+      2500,
+      14
+    ]
+  },
+  {
+    "group": "mlp300_binary_ruleweight_control_w1_l5_gamma1_repeat30",
+    "x_equal": true,
+    "y_equal": true,
+    "new_shape": [
+      2500,
+      14
+    ],
+    "saved_shape": [
+      2500,
+      14
+    ]
+  }
+]

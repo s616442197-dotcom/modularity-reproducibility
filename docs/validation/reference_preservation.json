@@ -1,0 +1,57 @@
+[
+  {
+    "file": "modularity.tex",
+    "sha256": "393df35b03e79d620a8268c9bf380985a5461686c12347a8332bd153563b06af",
+    "matches_original": true
+  },
+  {
+    "file": "sup.tex",
+    "sha256": "a745e5cb03c4d33ac08f4cc99f6b2145b3010201bb4a50057429a19910d18bdb",
+    "matches_original": true
+  },
+  {
+    "file": "ref.bib",
+    "sha256": "215453e1d527ee5ecc7229517238ae0f8e3916ccbd1472236af7cd80d57dd24b",
+    "matches_original": true
+  },
+  {
+    "file": "arxiv.sty",
+    "sha256": "011a4870ca65ef14244487549707ab9d813f2a3302fc060bd1e839bfbffb3676",
+    "matches_original": true
+  },
+  {
+    "file": "newfig/main_fig1.pdf",
+    "sha256": "40bafe73903fa689aec99cdb99d47883fe653aeeb5120ebf72af7f9689ccc663",
+    "matches_original": true
+  },
+  {
+    "file": "newfig/main_fig2.pdf",
+    "sha256": "c169c4bde9fbed972de1adde76ab6a97dc138fbd913fa3cedd883829b220f405",
+    "matches_original": true
+  },
+  {
+    "file": "newfig/main_fig3.pdf",
+    "sha256": "ac4b3286373764fd8c3188a26c9c6b4cd336e66bb28b8714396d09a7c999d59e",
+    "matches_original": true
+  },
+  {
+    "file": "newfig/main_fig4.pdf",
+    "sha256": "9afeb2f9ea7f0a05d75d83b405a74866eae272a469baa0fecec6329eea5658c1",
+    "matches_original": true
+  },
+  {
+    "file": "newfig/main_fig5.pdf",
+    "sha256": "2e45cb2907cfaa7902169de889d90696dec37df727db805480eca5fb50e4e604",
+    "matches_original": true
+  },
+  {
+    "file": "newfig/main_fig6.pdf",
+    "sha256": "9c2cc9d6ab565ae31a70fa8218e3a1bd340a1d81df3efec5b23a30c28b5fd553",
+    "matches_original": true
+  },
+  {
+    "file": "figs/supp_training_cost.pdf",
+    "sha256": "f414f92cef284f6d561ced9ff1f6b0f07b665ebf47f70518cd56bac9dab2f7dd",
+    "matches_original": true
+  }
+]

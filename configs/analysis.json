@@ -1,0 +1,21 @@
+{
+  "token_extraction_method": "score_quantile",
+  "token_extraction_fraction": 0.75,
+  "importance_min_score": 1e-09,
+  "importance_output_eps": 1e-08,
+  "max_weight_elements_per_block": null,
+  "perturbation_batch_size": 64,
+  "taylor_probes": 4,
+  "taylor_seed": 0,
+  "fig3_nip_output_eps": 1e-24,
+  "fig3_definition": "importance_weighted_NIP",
+  "transformer_excluded_runs": [
+    2,
+    11,
+    14,
+    17,
+    20,
+    22,
+    24
+  ]
+}

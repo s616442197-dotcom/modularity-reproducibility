@@ -1,0 +1,23 @@
+{
+  "selected_runs": {
+    "binary": 30,
+    "pattern": 30,
+    "mnist": 30,
+    "taylor_mlp": 30,
+    "transformer": 23
+  },
+  "single_rule_rows": 4500,
+  "time_rows": 1800,
+  "geometry_rows": 2100,
+  "correlation_hist_rows": 4800,
+  "recomposition_rows": 360,
+  "nip_unique_run_layers": 540,
+  "nip_legacy_threshold_duplicates_identical": true,
+  "fig5_matrix_max_abs_differences": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "fig5_paired_trials": 150,
+  "status": "PASS"
+}

@@ -1,0 +1,36 @@
+{
+  "dataset": "BinaryPairDataset",
+  "task": "BinaryArithmeticTask",
+  "model": "TorchTinyTransformer",
+  "loss": "WeightedMSELoss",
+  "loss_config": {
+    "l1": 0.5,
+    "gamma": 1.0,
+    "regularization_epsilon": 1e-08,
+    "weighted_rule": 0,
+    "weighted_loss": 1.0,
+    "rule_weights": null
+  },
+  "seed": 300,
+  "epochs": 5000,
+  "batch_size": 128,
+  "lr": 0.001,
+  "optimizer_name": "adam",
+  "weight_decay": 0,
+  "snapshot_every": 1000,
+  "eval_every": null,
+  "rule_indices": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "rule_names": [
+    "x+y",
+    "x*y",
+    "x^2",
+    "y^2",
+    "x*(x+y)"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "full_training": false,
+  "checks": [
+    {
+      "model": "mlp300_binary_repeat30",
+      "epochs": 2,
+      "samples": 40,
+      "analysis": "ablation",
+      "retained_shape": [
+        5,
+        31
+      ],
+      "status": "PASS"
+    },
+    {
+      "model": "mlp300_pattern_repeat30",
+      "epochs": 2,
+      "samples": 40,
+      "analysis": "ablation",
+      "retained_shape": [
+        5,
+        31
+      ],
+      "status": "PASS"
+    },
+    {
+      "model": "mlp_mnist_arithmetic_repeat30",
+      "epochs": 2,
+      "samples": 40,
+      "analysis": "ablation",
+      "retained_shape": [
+        5,
+        31
+      ],
+      "status": "PASS"
+    },
+    {
+      "model": "transformer_binary_repeat30",
+      "epochs": 2,
+      "samples": 40,
+      "analysis": "taylor",
+      "retained_shape": [
+        5,
+        31
+      ],
+      "status": "PASS"
+    },
+    {
+      "model": "mlp300_binary_ruleweight_control_w1_l5_gamma1_repeat30",
+      "epochs": 2,
+      "samples": 40,
+      "analysis": "ablation",
+      "retained_shape": [
+        5,
+        31
+      ],
+      "status": "PASS"
+    },
+    {
+      "model": "mlp300_binary_ruleweight_rule0_w5_l5_gamma1_repeat30",
+      "epochs": 2,
+      "samples": 40,
+      "analysis": "ablation",
+      "retained_shape": [
+        5,
+        31
+      ],
+      "status": "PASS"
+    }
+  ]
+}

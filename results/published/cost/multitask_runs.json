@@ -1,0 +1,104 @@
+[
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/multitask/run_000",
+    "label": "multitask",
+    "seed": 830,
+    "repeat_idx": 0,
+    "rule_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "rule_names": [
+      "x+y",
+      "x*y",
+      "x^2",
+      "y^2",
+      "x*(x+y)"
+    ],
+    "train_seconds": 9.64774414896965,
+    "param_count": 195635,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 35,
+    "train_proxy": 117381000000.0,
+    "final_test_mean_acc": 0.7646000027656555,
+    "final_test_task_acc": {
+      "x+y": 0.63185715675354,
+      "x*y": 0.7008571624755859,
+      "x^2": 0.8907142877578735,
+      "y^2": 0.9020000100135803,
+      "x*(x+y)": 0.6975713968276978
+    }
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/multitask/run_001",
+    "label": "multitask",
+    "seed": 831,
+    "repeat_idx": 1,
+    "rule_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "rule_names": [
+      "x+y",
+      "x*y",
+      "x^2",
+      "y^2",
+      "x*(x+y)"
+    ],
+    "train_seconds": 8.935795845929533,
+    "param_count": 195635,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 35,
+    "train_proxy": 117381000000.0,
+    "final_test_mean_acc": 0.7647714138031005,
+    "final_test_task_acc": {
+      "x+y": 0.6365714073181152,
+      "x*y": 0.7015714049339294,
+      "x^2": 0.9022856950759888,
+      "y^2": 0.8965713977813721,
+      "x*(x+y)": 0.6868571639060974
+    }
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/multitask/run_002",
+    "label": "multitask",
+    "seed": 832,
+    "repeat_idx": 2,
+    "rule_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "rule_names": [
+      "x+y",
+      "x*y",
+      "x^2",
+      "y^2",
+      "x*(x+y)"
+    ],
+    "train_seconds": 8.555064428015612,
+    "param_count": 195635,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 35,
+    "train_proxy": 117381000000.0,
+    "final_test_mean_acc": 0.7629142880439759,
+    "final_test_task_acc": {
+      "x+y": 0.62842857837677,
+      "x*y": 0.7075714468955994,
+      "x^2": 0.9051428437232971,
+      "y^2": 0.8844285607337952,
+      "x*(x+y)": 0.6890000104904175
+    }
+  }
+]

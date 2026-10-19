@@ -1,0 +1,362 @@
+[
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_1/run_000",
+    "label": "separate_rule 1",
+    "seed": 830,
+    "repeat_idx": 0,
+    "rule_indices": [
+      0
+    ],
+    "rule_names": [
+      "x+y"
+    ],
+    "train_seconds": 8.199919903068803,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.8650000095367432,
+    "final_test_task_acc": {
+      "x+y": 0.8650000095367432
+    },
+    "target_rule": "rule 1",
+    "target_rule_id": 0
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_2/run_000",
+    "label": "separate_rule 2",
+    "seed": 830,
+    "repeat_idx": 0,
+    "rule_indices": [
+      1
+    ],
+    "rule_names": [
+      "x*y"
+    ],
+    "train_seconds": 7.921775338007137,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.7505714297294617,
+    "final_test_task_acc": {
+      "x*y": 0.7505714297294617
+    },
+    "target_rule": "rule 2",
+    "target_rule_id": 1
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_3/run_000",
+    "label": "separate_rule 3",
+    "seed": 830,
+    "repeat_idx": 0,
+    "rule_indices": [
+      2
+    ],
+    "rule_names": [
+      "x^2"
+    ],
+    "train_seconds": 8.308141788002104,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.9934285879135132,
+    "final_test_task_acc": {
+      "x^2": 0.9934285879135132
+    },
+    "target_rule": "rule 3",
+    "target_rule_id": 2
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_4/run_000",
+    "label": "separate_rule 4",
+    "seed": 830,
+    "repeat_idx": 0,
+    "rule_indices": [
+      3
+    ],
+    "rule_names": [
+      "y^2"
+    ],
+    "train_seconds": 8.212230152101256,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.9975714087486267,
+    "final_test_task_acc": {
+      "y^2": 0.9975714087486267
+    },
+    "target_rule": "rule 4",
+    "target_rule_id": 3
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_5/run_000",
+    "label": "separate_rule 5",
+    "seed": 830,
+    "repeat_idx": 0,
+    "rule_indices": [
+      4
+    ],
+    "rule_names": [
+      "x*(x+y)"
+    ],
+    "train_seconds": 8.50568317505531,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.7347142696380615,
+    "final_test_task_acc": {
+      "x*(x+y)": 0.7347142696380615
+    },
+    "target_rule": "rule 5",
+    "target_rule_id": 4
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_1/run_001",
+    "label": "separate_rule 1",
+    "seed": 831,
+    "repeat_idx": 1,
+    "rule_indices": [
+      0
+    ],
+    "rule_names": [
+      "x+y"
+    ],
+    "train_seconds": 8.04386324097868,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.8682857155799866,
+    "final_test_task_acc": {
+      "x+y": 0.8682857155799866
+    },
+    "target_rule": "rule 1",
+    "target_rule_id": 0
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_2/run_001",
+    "label": "separate_rule 2",
+    "seed": 831,
+    "repeat_idx": 1,
+    "rule_indices": [
+      1
+    ],
+    "rule_names": [
+      "x*y"
+    ],
+    "train_seconds": 8.406924805021845,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.7567142844200134,
+    "final_test_task_acc": {
+      "x*y": 0.7567142844200134
+    },
+    "target_rule": "rule 2",
+    "target_rule_id": 1
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_3/run_001",
+    "label": "separate_rule 3",
+    "seed": 831,
+    "repeat_idx": 1,
+    "rule_indices": [
+      2
+    ],
+    "rule_names": [
+      "x^2"
+    ],
+    "train_seconds": 8.238612369052134,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.9974285364151001,
+    "final_test_task_acc": {
+      "x^2": 0.9974285364151001
+    },
+    "target_rule": "rule 3",
+    "target_rule_id": 2
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_4/run_001",
+    "label": "separate_rule 4",
+    "seed": 831,
+    "repeat_idx": 1,
+    "rule_indices": [
+      3
+    ],
+    "rule_names": [
+      "y^2"
+    ],
+    "train_seconds": 8.551943921949714,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.9974285364151001,
+    "final_test_task_acc": {
+      "y^2": 0.9974285364151001
+    },
+    "target_rule": "rule 4",
+    "target_rule_id": 3
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_5/run_001",
+    "label": "separate_rule 5",
+    "seed": 831,
+    "repeat_idx": 1,
+    "rule_indices": [
+      4
+    ],
+    "rule_names": [
+      "x*(x+y)"
+    ],
+    "train_seconds": 8.311183942016214,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.7262856960296631,
+    "final_test_task_acc": {
+      "x*(x+y)": 0.7262856960296631
+    },
+    "target_rule": "rule 5",
+    "target_rule_id": 4
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_1/run_002",
+    "label": "separate_rule 1",
+    "seed": 832,
+    "repeat_idx": 2,
+    "rule_indices": [
+      0
+    ],
+    "rule_names": [
+      "x+y"
+    ],
+    "train_seconds": 8.387546986923553,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.8432856798171997,
+    "final_test_task_acc": {
+      "x+y": 0.8432856798171997
+    },
+    "target_rule": "rule 1",
+    "target_rule_id": 0
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_2/run_002",
+    "label": "separate_rule 2",
+    "seed": 832,
+    "repeat_idx": 2,
+    "rule_indices": [
+      1
+    ],
+    "rule_names": [
+      "x*y"
+    ],
+    "train_seconds": 8.097826757933944,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.7615714073181152,
+    "final_test_task_acc": {
+      "x*y": 0.7615714073181152
+    },
+    "target_rule": "rule 2",
+    "target_rule_id": 1
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_3/run_002",
+    "label": "separate_rule 3",
+    "seed": 832,
+    "repeat_idx": 2,
+    "rule_indices": [
+      2
+    ],
+    "rule_names": [
+      "x^2"
+    ],
+    "train_seconds": 8.15954808308743,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.998285710811615,
+    "final_test_task_acc": {
+      "x^2": 0.998285710811615
+    },
+    "target_rule": "rule 3",
+    "target_rule_id": 2
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_4/run_002",
+    "label": "separate_rule 4",
+    "seed": 832,
+    "repeat_idx": 2,
+    "rule_indices": [
+      3
+    ],
+    "rule_names": [
+      "y^2"
+    ],
+    "train_seconds": 8.094951150007546,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.998285710811615,
+    "final_test_task_acc": {
+      "y^2": 0.998285710811615
+    },
+    "target_rule": "rule 4",
+    "target_rule_id": 3
+  },
+  {
+    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/separate_rule_5/run_002",
+    "label": "separate_rule 5",
+    "seed": 832,
+    "repeat_idx": 2,
+    "rule_indices": [
+      4
+    ],
+    "rule_names": [
+      "x*(x+y)"
+    ],
+    "train_seconds": 8.174777861102484,
+    "param_count": 187207,
+    "train_samples": 1000,
+    "test_samples": 1000,
+    "output_dim": 7,
+    "train_proxy": 112324200000.0,
+    "final_test_mean_acc": 0.7262856960296631,
+    "final_test_task_acc": {
+      "x*(x+y)": 0.7262856960296631
+    },
+    "target_rule": "rule 5",
+    "target_rule_id": 4
+  }
+]
