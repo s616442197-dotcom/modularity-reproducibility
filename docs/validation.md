@@ -19,6 +19,8 @@ Validation date: 2026-10-19. The original source tree, manuscript and reference 
 
 Machine-readable records are in `validation/`. Commands use the versions in `runtime.json`. TeX compilation was tested with Windows MiKTeX; scientific execution was tested under Linux/WSL. Ten non-fatal supplement warnings concern mathematical tokens in PDF bookmarks; there were no missing figures, undefined references or overfull boxes in the checked final logs.
 
+The final scientific code was also checked from a clean Git clone of commit `d71d3bf1ac30a6cb1ffb4ea69ddc800ef4a1edc8`, copied to a Linux temporary directory with original-tree access denied. Observation replay, all six smoke cases and numerical checks passed. `validation/delivered_commit.json` records that commit and the final compiled PDF hashes; the subsequent commit only adds validation records and this note. Source/reference preservation hashes describe the initial byte-preserving copies; Git normalizes text line endings to LF without changing scientific content.
+
 ## Repeat the checks
 
 ```bash

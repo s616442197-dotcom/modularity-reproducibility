@@ -1,0 +1,21 @@
+{
+  "mode": "from-results",
+  "status": "PASS",
+  "training_repeated": false,
+  "tex_compiled": false,
+  "input_sha256": {
+    "results/published/selection.json": "d4a2a8d91f9b4aec3ed85edea0a0745f72c0a381be7e9eddda79bd237ea2be22",
+    "results/published/recomposition.csv": "4a3fdecc72426bffffe95a26d0d5e0d38442d7f4d780595262d974a887357ff0",
+    "results/published/geometry.csv": "f403f954c2a8da124723816425778fcc7728801ab1d4c02bd26589f8cda063db",
+    "results/published/correlation_hist.csv": "52c477f5efca0255e4b8ae79c99512c54ff5fd547371fffc57ff68eb6014245f",
+    "results/published/nip.json": "7610c80346f3156b32639d4122d723ed3f769a02ec66d7493f6fb11c2b51c177",
+    "results/published/robustness.npz": "47dad636a2e3252ec5264f593870d608a898df4db5550fdc322581f43d81d05b",
+    "results/published/time.csv": "d4d8e23569c793278c48d82b2fe56e1dae894c0cf162def11897bc268458318d",
+    "results/published/ruleweight_runs.json": "bf83d52d284a3ca3bd6a7dc4e721b16713df39581c1d8dec870b7e7ef52d66d8",
+    "results/published/single_rule.csv": "a9749f87a0c225dcc5b357b81b1b51dd103a92103db3d6482e6158459209eb63",
+    "results/published/cost/extraction_runs.json": "58f549553857c1ddac28198c45423b9f1a83ddec287ae0fa8348381a3c668c20",
+    "results/published/cost/multitask_runs.json": "6b0bd4544d340f484676f5014e7dd55e903eaefc7dc399245f906d528015858f",
+    "results/published/cost/separate_runs.json": "9d9123cf462d5d27ac902124ada0c8479097b2b1ffa5fca3bf4951de244f1966"
+  },
+  "statistics": "figures/statistics.json"
+}
