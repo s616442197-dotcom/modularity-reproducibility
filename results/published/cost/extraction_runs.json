@@ -1,53 +1,83 @@
 [
   {
-    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/multitask/run_000",
+    "run_dir": "/home/sbw/modularity/example/composite/results/multitask_vs_separate_cost/training/multitask/run_000",
     "repeat_idx": 0,
     "seed": 830,
-    "extraction_seconds": 0.45269105106126517,
-    "token_retained_relative_accuracy_mean": 0.9983368006788093,
-    "token_retained_relative_accuracy_by_rule": {
-      "rule 1": 0.996608636671942,
-      "rule 2": 0.9975540154912352,
-      "rule 3": 0.9998396150761829,
-      "rule 4": 0.9995248653785239,
-      "rule 5": 0.9981568707761621
+    "protocol": {
+      "target": "weight",
+      "method": "ablation",
+      "tau": 0.75,
+      "extraction_method": "score_quantile",
+      "min_score": 1e-09,
+      "output_eps": 1e-08,
+      "candidate_cap": null
     },
-    "extraction_total_hidden_neurons": 900.0,
-    "extraction_batched_forward_calls": 15.0,
-    "extraction_sample_forward_proxy": 15000.0
+    "token_retained_relative_accuracy_mean": 0.9613817175453286,
+    "token_retained_relative_accuracy_by_rule": {
+      "rule 1": 0.9773909111462807,
+      "rule 2": 0.9557684467998369,
+      "rule 3": 0.9650360866078589,
+      "rule 4": 0.9592968007602154,
+      "rule 5": 0.9494163424124512
+    },
+    "extraction_seconds": 13.13879146000545,
+    "extraction_total_scalar_weights": 194700,
+    "extraction_batched_forward_calls": 3045,
+    "extraction_sample_forward_evaluations": 194700000,
+    "extraction_sample_forward_proxy": 3045000
   },
   {
-    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/multitask/run_001",
+    "run_dir": "/home/sbw/modularity/example/composite/results/multitask_vs_separate_cost/training/multitask/run_001",
     "repeat_idx": 1,
     "seed": 831,
-    "extraction_seconds": 0.3995393979130313,
-    "token_retained_relative_accuracy_mean": 0.9995911079171848,
-    "token_retained_relative_accuracy_by_rule": {
-      "rule 1": 0.9961849192100538,
-      "rule 2": 1.003665241295052,
-      "rule 3": 0.9993666877770742,
-      "rule 4": 0.9993626513702996,
-      "rule 5": 0.9993760399334443
+    "protocol": {
+      "target": "weight",
+      "method": "ablation",
+      "tau": 0.75,
+      "extraction_method": "score_quantile",
+      "min_score": 1e-09,
+      "output_eps": 1e-08,
+      "candidate_cap": null
     },
-    "extraction_total_hidden_neurons": 900.0,
-    "extraction_batched_forward_calls": 15.0,
-    "extraction_sample_forward_proxy": 15000.0
+    "token_retained_relative_accuracy_mean": 0.951585395830126,
+    "token_retained_relative_accuracy_by_rule": {
+      "rule 1": 0.9530969479353681,
+      "rule 2": 0.9651802076970066,
+      "rule 3": 0.9281190626979101,
+      "rule 4": 0.9518801784576163,
+      "rule 5": 0.9596505823627288
+    },
+    "extraction_seconds": 13.778262535997783,
+    "extraction_total_scalar_weights": 194700,
+    "extraction_batched_forward_calls": 3045,
+    "extraction_sample_forward_evaluations": 194700000,
+    "extraction_sample_forward_proxy": 3045000
   },
   {
-    "run_dir": "example/composite/results/multitask_vs_separate_cost/training/multitask/run_002",
+    "run_dir": "/home/sbw/modularity/example/composite/results/multitask_vs_separate_cost/training/multitask/run_002",
     "repeat_idx": 2,
     "seed": 832,
-    "extraction_seconds": 0.4034021479310468,
-    "token_retained_relative_accuracy_mean": 0.9993097044173392,
-    "token_retained_relative_accuracy_by_rule": {
-      "rule 1": 0.999090702432371,
-      "rule 2": 0.9975772259236827,
-      "rule 3": 1.0001578282828283,
-      "rule 4": 0.9995154256178324,
-      "rule 5": 1.0002073398299816
+    "protocol": {
+      "target": "weight",
+      "method": "ablation",
+      "tau": 0.75,
+      "extraction_method": "score_quantile",
+      "min_score": 1e-09,
+      "output_eps": 1e-08,
+      "candidate_cap": null
     },
-    "extraction_total_hidden_neurons": 900.0,
-    "extraction_batched_forward_calls": 15.0,
-    "extraction_sample_forward_proxy": 15000.0
+    "token_retained_relative_accuracy_mean": 0.9452038141292176,
+    "token_retained_relative_accuracy_by_rule": {
+      "rule 1": 0.9393043873607638,
+      "rule 2": 0.941853422168383,
+      "rule 3": 0.9539141414141414,
+      "rule 4": 0.9334517848489744,
+      "rule 5": 0.9574953348538254
+    },
+    "extraction_seconds": 13.341559145002975,
+    "extraction_total_scalar_weights": 194700,
+    "extraction_batched_forward_calls": 3045,
+    "extraction_sample_forward_evaluations": 194700000,
+    "extraction_sample_forward_proxy": 3045000
   }
 ]

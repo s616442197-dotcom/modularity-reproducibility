@@ -520,7 +520,7 @@ The support-recovery theorem and its singularity argument for $0<\gamma<1$ conce
 
 The support-recovery statement applies only when the realized score threshold, including the score floor, lies inside the assumed separation gap. A fixed 75th-percentile rule does not by itself guarantee this condition or identify the true support size. The theoretical noise bound $\tau_n$ is distinct from the extraction quantile $\tau=0.75$.
 
-Under this assumption, Proposition S1 yields task-specific supports \(\mathcal S_{\ell,r}\). Eq.~\eqref{eq:score_support_equivalence_lgamma} then shows that ablation and Taylor profiling recover those supports by thresholding. The task signature of token \(q\) is
+Under these local-surrogate, compatibility and score-separation assumptions, Proposition S1 yields task-specific supports \(\mathcal S_{\ell,r}\). Eq.~\eqref{eq:score_support_equivalence_lgamma} then shows that ablation and Taylor profiling recover those supports by thresholding. The task signature of token \(q\) is
 \begin{equation}
 \mathcal R_q=\{r:q\in\mathcal S_{\ell,r}\}.
 \end{equation}
@@ -529,7 +529,7 @@ For a task set \(c\subseteq\{1,\ldots,R\}\), the retained functional-token subne
 U_c=\bigcup_{r\in c}\mathcal S_{\ell,r}
 =\{q:\mathcal R_q\cap c\ne\varnothing\}.
 \end{equation}
-If \(r\in c\), then \(\mathcal S_{\ell,r}\subseteq U_c\), so the local surrogate gives
+If \(r\in c\), then \(\mathcal S_{\ell,r}\subseteq U_c\). Provided the local approximation remains valid after the simultaneous mask is applied to all analyzed matrices, the surrogate gives
 \begin{equation}
 f_r^{(U_c)}(x)
 \approx
@@ -537,13 +537,13 @@ f_r^{(U_c)}(x)
 \approx
 f_r(x),
 \end{equation}
-which is the sufficiency statement for target tasks. If \(s\notin c\), then
+which is a conditional output-preservation statement, not a general sufficiency guarantee for a nonlinear network. Simultaneous removal of many weights can change activations and invalidate a single-coordinate approximation. Preserving thresholded predictions additionally requires the joint-mask output error to remain smaller than the original distance of each output from its decision threshold (0.5 for binary outputs). Support inclusion alone does not establish this stability or margin condition. If \(s\notin c\), and the same approximation remains valid, then
 \begin{equation}
 f_s^{(U_c)}(x)
 \approx
 \sum_{q\in U_c\cap\mathcal S_{\ell,s}}z_q(x)b_{qs}.
 \end{equation}
-When \(U_c\cap\mathcal S_{\ell,s}\) is empty or small, off-target performance decreases, giving specificity. Finally,
+A small intersection \(U_c\cap\mathcal S_{\ell,s}\) alone does not imply reduced off-target accuracy: the magnitudes of omitted contributions, biases, approximation error and classification margins also matter. An accuracy decrease requires output changes that cross decision boundaries in directions that turn correct predictions into errors, with a net loss over any corrected errors. Sufficiency and specificity of the actual joint masks are therefore assessed empirically. Finally,
 \begin{equation}
 U_{c_1\cup c_2}=U_{c_1}\cup U_{c_2},
 \end{equation}
@@ -635,7 +635,7 @@ The TinyTransformer analysis uses the 23 saved runs trained with batch size 128.
 
 \subsection{TinyTransformer}
 
-The TinyTransformer provides a lightweight non-MLP architecture for testing whether functional-token extraction depends on fully connected hidden layers. Each paired binary input is split into left and right halves, and both halves are projected into a shared 32-dimensional token space. The resulting two-token sequence is processed by two encoder-style self-attention blocks with feedforward width 64 by default. The final representation is obtained by mean-pooling the two tokens and passing the pooled vector through a linear prediction head with $RP$ outputs.
+The TinyTransformer provides a lightweight non-MLP architecture for testing whether functional-token extraction depends on fully connected hidden layers. Each paired binary input is split into left and right halves, and both halves are projected into a shared 32-dimensional token space. The resulting two-token sequence is processed by two encoder-style self-attention blocks with feedforward width 64. The final representation is obtained by mean-pooling the two tokens and passing the pooled vector through a linear prediction head with $RP$ outputs.
 
 In the robustness simulation, the TinyTransformer is trained on the same Binary Sequence Calculation rules as the MLP, using rule indices 0--4. The encoder is trainable (\texttt{train\_encoder=True}), so both the token encoder and output head are optimized jointly. Functional tokens are constructed from scalar weight coordinates in the trained parameter matrices, profiled and retained with the same definitions used for the MLP experiments.
 
@@ -645,7 +645,7 @@ In the robustness simulation, the TinyTransformer is trained on the same Binary 
     \item Training batch size: 128; 23 independent runs included in the analysis.
     \item Token/hidden dimension: 32.
     \item Transformer encoder blocks: two.
-    \item Feedforward hidden dimension: 64 by default.
+    \item Feedforward hidden dimension: 64.
     \item Dataset size: 5{,}000 binary-pair samples with a 50/50 training--validation split.
     \item Number of jointly trained arithmetic tasks: 5.
     \item Regularization exponent: $\gamma=1$.
@@ -702,9 +702,9 @@ For reproducibility, we specify the current analysis configuration for Figs.~\re
 
 The Fig.~\ref{fig:main4}c,d distributions match the saved importance-weighted NIP results and implement Eq.~\eqref{eq:modularity}; rule-count purity is a different statistic and was not used for these panels. Recomputing six representative ablation checkpoints with the adopted configuration gave a maximum absolute difference in $M$ of $1.04\times10^{-7}$, identical active-token counts, and identical single-rule relative accuracies and retained-weight ratios. Recomputing all 600 Taylor checkpoints underlying Fig.~\ref{fig:main5}a gave a maximum absolute difference in $M$ of $1.60\times10^{-8}$ and identical active-token counts. These checks reassess saved trained models rather than retrain them.
 
-For Fig.~\ref{fig:main6}, all six condition-level analysis summaries record ablation profiling, $\tau=0.75$, $\epsilon_S=10^{-9}$, $\epsilon_{\mathrm{out}}=10^{-8}$ and no candidate cap. Its saved training loss configuration records $l_{\mathrm{train}}=5$ and $\gamma=1$; the fivefold display scaling of the separate sweep does not apply. For Fig.~\ref{fig:main7}b,c, all 120 recomposition cache headers record ablation profiling, $\tau=0.75$, the same score floor and output-energy constant, and no candidate cap. The saved $10^{-6}$ score-ratio threshold is a legacy field, not the selection threshold in their recorded \texttt{score\_quantile} branch. The recomposition conditions explicitly retain the sweep's experiment/display strength mapping. Probe-count fields in ablation exports are metadata only and do not imply that Taylor probes were used.
+For Fig.~\ref{fig:main6}, all 180 newly trained 300-unit models underwent fresh scalar-weight ablation profiling. Fig.~\ref{fig:main7}b,c uses fresh profiling of all 120 saved 300-unit mother models, and Fig.~\ref{fig:main7}d and Supplementary Fig.~\ref{fig:training_cost} use fresh profiling of three saved auxiliary joint models. All these analyses use $\tau=0.75$, $\epsilon_S=10^{-9}$, $\epsilon_{\mathrm{out}}=10^{-8}$, perturbation batch size 64 and no candidate cap. All 194,700 scalar weights, including the output matrix, are candidates; masks are constructed separately per matrix and applied simultaneously, while biases remain unchanged. Fig.~\ref{fig:main6} uses $l_{\mathrm{train}}=5$ and $\gamma=1$, without display rescaling. The recomposition conditions retain the sweep's experiment/display strength mapping. The saved $10^{-6}$ score-ratio field is not a selection threshold in the \texttt{score\_quantile} branch, and probe-count metadata in ablation exports do not imply Taylor profiling.
 
-Training regularization strength $l_{\mathrm{train}}$, extraction quantile $\tau$, realized score threshold $T$, score floor $\epsilon_S$ and output-energy constant $\epsilon_{\mathrm{out}}$ have distinct roles. In the saved Lasso/exponent sweep used for Figs.~\ref{fig:main4} and~\ref{fig:main5}, the displayed strength is $l=5l_{\mathrm{train}}$. Thus displayed $l=0,1,5,10$ corresponds to $l_{\mathrm{train}}=0,0.2,1,2$. This mapping is not assumed for experiments lacking corresponding historical records. Further per-experiment provenance is provided in Supplementary Note~\ref{appendix:Taylor}.
+Training regularization strength $l_{\mathrm{train}}$, extraction quantile $\tau$, realized score threshold $T$, score floor $\epsilon_S$ and output-energy constant $\epsilon_{\mathrm{out}}$ have distinct roles. In the saved Lasso/exponent sweep used for Figs.~\ref{fig:main4} and~\ref{fig:main5}, the displayed strength is $l=5l_{\mathrm{train}}$. Thus displayed $l=0,1,5,10$ corresponds to $l_{\mathrm{train}}=0,0.2,1,2$. This mapping is not assumed for experiments lacking corresponding historical records. Experiment-specific training settings are provided in Supplementary Note~\ref{appendix:architecture}; task-weighting and recomposition/cost protocols are detailed in Supplementary Notes~\ref{appendix:task_weighting_allocation} and~\ref{appendix:recomposition}, respectively. Rule accuracy is mean agreement over samples and output bits after thresholding predictions at $>0.5$, not exact-vector accuracy; relative accuracy divides this measure by that of the full network. In the main-text definition of $M$, active tokens satisfy $a_q>\epsilon_M=10^{-12}$, distinct from the raw-score floor $\epsilon_S$; $M$ is undefined if no token is active.
 
 \section{Implementation Details}
 \label{appendix:implementation}
@@ -756,7 +756,7 @@ Let $a=\mathrm{bin2dec}(x)$ and $b=\mathrm{bin2dec}(y)$; $a$ and $b$ are the ari
 This task family applies elementwise logical operations to sparse binary patterns.
 
 \paragraph{Input.}
-Two binary vectors $x,y\in\{0,1\}^{P}$ are sampled independently from a sparse Bernoulli distribution. In the robustness simulation, $P=7$ and the sparsity parameter is 0.7, so each bit is zero with probability 0.7 and one with probability 0.3. The model receives the concatenated vector $[x;y]\in\{0,1\}^{2P}$.
+Two binary vectors $x,y\in\{0,1\}^{P}$ are sampled independently from a sparse Bernoulli distribution. In the robustness simulation, $P=7$ and the sparsity parameter is 0.7, so each bit is zero with probability 0.7 and one with probability 0.3. The model receives the concatenated vector $[x;y]\in\{0,1\}^{2P}$. Sample rows are shuffled and split without deduplicating pattern pairs across the training and held-out sets. Each of the 30 saved runs contains 2,500 held-out pairs.
 
 \paragraph{Output.}
 Each selected rule produces a binary vector in $\{0,1\}^{P}$. With $R$ selected rules, the final output is
@@ -781,7 +781,7 @@ Logical operations are applied elementwise:
 This task family applies arithmetic rules to MNIST digit labels while presenting the corresponding image pairs as input.
 
 \paragraph{Input.}
-Two MNIST images $I_1,I_2$ with digit labels $d_1,d_2\in\{0,\dots,9\}$ are selected. In the robustness simulation, digit pairs are balanced over the 100 possible label pairs, and image instances for each digit are sampled from the MNIST training split. Images are normalized, flattened, and concatenated into a single input vector.
+Two MNIST images $I_1,I_2$ with digit labels $d_1,d_2\in\{0,\dots,9\}$ are selected. In the robustness simulation, digit pairs are balanced over the 100 possible label pairs, and image instances for each digit are sampled from the MNIST training split. Images are normalized, flattened, and concatenated into a single input vector. The split is performed on generated image-pair rows rather than on unique source images, so the same source image can occur in both sets. Each of the 30 saved runs contains 2,500 held-out pairs.
 
 \paragraph{Output.}
 Rules operate on integer labels $d_1,d_2$. Each rule output is converted to binary and truncated to the last $P=7$ bits. With $R$ selected rules, the output is
@@ -899,7 +899,7 @@ The values were grouped into 100 equally spaced bins over $[0,1]$, and the histo
 \section{Task-Weighting Functional Allocation Analysis}
 \label{appendix:task_weighting_allocation}
 
-This section defines the analysis in Fig.~\ref{fig:main6}, implemented in \texttt{example/figure6.py} from the current \texttt{example/results/ruleweight} outputs. The Binary Sequence Calculation MLP was trained on $R=5$ rules for 5,000 epochs with $l=5$ and $\gamma=1$. Each condition contains $K=30$ independent runs. Figure labels use rules~1--5; the implementation indexes the same rules as 0--4.
+This section defines the analysis in Fig.~\ref{fig:main6}, generated by \texttt{example/fig56\_protocol.py} and plotted with \texttt{example/figure6.py}. All six conditions use the same MLP architecture with three hidden layers of 300 units. Each condition contains $K=30$ runs with seeds 300--329, giving 180 newly trained networks. Training uses 5,000 epochs, Adam with learning rate 0.05, batch size 128, $l_{\mathrm{train}}=5$ and $\gamma=1$. Each seed generates 5,000 unique binary input pairs, split equally into training and held-out sets and shared across conditions. The model initialization and optimizer random seeds are the run seed plus 100 and 200, respectively. Figure labels use rules~1--5; the implementation indexes them as 0--4.
 
 \paragraph{Experimental design.}
 Let $c=0$ denote the equal-weight control, for which $W^{(0)}_r=1$ for every rule. In intervention condition $c=u$, rule $u$ receives five-fold loss weight:
@@ -910,7 +910,7 @@ W^{(u)}_r=
 1, & r\ne u .
 \end{cases}
 \end{equation}
-Functional tokens are extracted independently from each trained network by ablation profiling and the fixed rule-wise score-quantile mask used in the main analysis.
+Functional tokens are extracted independently from each trained network by ablation profiling and the fixed rule-wise score-quantile mask used in the main analysis. Importance profiling and evaluation of the masked subnetworks use the same held-out set, as in the robustness and recomposition analyses; reported retention therefore measures preservation on that analysis set, rather than generalization to a second untouched evaluation set.
 
 \paragraph{Condition-level matrices.}
 Let $A^{\mathrm{full}}_{c,r,k}$ be the unmasked-network accuracy in condition $c$, evaluated on rule $r$ in run $k$, and let $\rho_{c,r,k}$ be the retained scalar weight fraction of the functional token defined for rule $r$. Bars denote averages over runs. Panels a and b report
@@ -932,7 +932,7 @@ A^{\mathrm{ret}}_{c,r\mid r,k}
 Panel c shows $\overline{m}_{u,r}$ for each upweighted condition and rule-defined token. Unlike panels a and b, this panel reports the margin in the intervention condition itself rather than a control-subtracted change.
 
 \paragraph{Target-rule summaries and paired trials.}
-Panel d uses the five diagonal condition-level pairs $(\Delta A_{u,u},10^4\Delta\rho_{u,u})$. Horizontal and vertical uncertainties combine the intervention and control SEMs in quadrature, and the displayed Pearson coefficient is descriptive across the five rule means.
+Panel d uses the five diagonal condition-level pairs $(\Delta A_{u,u},10^4\Delta\rho_{u,u})$. For a metric $X$ (accuracy or retained-weight ratio), the implemented marginal error is $e_{c,X}=\sigma_{c,X}/\sqrt K$, where $\sigma_{c,X}^2=K^{-1}\sum_k(X_{c,k}-\overline X_c)^2$ (population standard deviation, \texttt{ddof=0}). The displayed error for a difference is $e_{\Delta X}=\sqrt{e_{u,X}^2+e_{0,X}^2}$; the weight-ratio error is multiplied by $10^4$ on the plotted axis. This retains the original error-bar convention and is not the SEM of paired differences, because it omits their covariance. The displayed Pearson coefficient is descriptive across the five rule means.
 
 For panel e, upweighted and control runs are matched by repeat index. The target-rule differences are
 \begin{equation}
@@ -944,7 +944,7 @@ A^{\mathrm{full}}_{u,u,k}-A^{\mathrm{full}}_{0,u,k},
 =
 \rho_{u,u,k}-\rho_{0,u,k}.
 \end{equation}
-Pooling the five rules gives $RK=150$ matched pairs. The figure reports their Pearson correlation and a two-sided $p$ value and overlays the least-squares fit. These associations quantify covariation between performance and selected support under task weighting; they do not identify either quantity as the cause of the other.
+Pooling the five rules gives $RK=150$ matched pairs. The figure reports their Pearson correlation ($r=0.7835$), nominal two-sided $p$ value ($p=2.18\times10^{-32}$), and least-squares fit. Conditions share run seeds and the same control networks; this pooled $p$ value is not adjusted for clustering by seed, shared controls, or task identity. It therefore does not establish an independent association after accounting for that dependence. These associations quantify covariation between performance and selected support under task weighting, without identifying either quantity as the cause of the other.
 
 \section{Compositional Reconstruction of Functional Tokens}
 \label{appendix:recomposition}
@@ -953,7 +953,7 @@ Pooling the five rules gives $RK=150$ matched pairs. The figure reports their Pe
 
 For each sparsity condition, a mother MLP was first trained jointly on rules 1--5 of the Binary Sequence Calculation task family under $L_{\gamma}$ regularization, with $\gamma=1$. The sparsity-strength parameter $l$ therefore denotes the Lasso strength used during training of the mother network, rather than a regularization term applied during recomposition.
 
-After training, rule-specific functional tokens were extracted using the ablation-profiling and masking procedure described in Methods. For each independent trial and each value of $l$, masked subnetworks were stored separately for the addition, multiplication, square, and composite rule-5 functions. The recomposition analysis started directly from these saved subnetworks and did not repeat the profiling procedure.
+For each of four displayed regularization strengths and 30 independent trials, the saved 300-unit mother model was profiled again using scalar-weight ablation and the masking procedure described above. The 120 fresh analyses produced masks for addition, multiplication, square and composite rule 5. Each mask and its learned parameters were then held fixed while evaluating the direct rule-5 control and the two recomposition pathways, giving 360 evaluations. Recomposition does not retrain or fine-tune the components, and it does not merge their masks.
 
 Each functional token retained the architecture and learned parameter values inherited from its mother network, while parameters excluded by its functional mask were set to zero. The masks of different functional tokens were not combined through a union of scalar weight coordinates. Instead, each token remained a separate masked MLP, and recomposition was implemented by explicitly connecting the output of one token to the input of another.
 
@@ -1193,15 +1193,21 @@ Finally, the value of $l$ associated with each reconstruction indicates the Lass
 \subsection{Auxiliary training and extraction cost}
 \label{supp:training_cost}
 
-The auxiliary benchmark compares a jointly trained five-task network, that network followed by token extraction, and five separately trained single-task networks. It does not measure recomposition. For each run, the training proxy is
+The auxiliary benchmark compares three jointly trained five-task models (seeds 830--832), those models followed by weight-token extraction, and 15 separately trained single-task controls (five per seed). Each network has three hidden layers of 300 units. This auxiliary experiment uses 600 epochs of SGD, learning rate 0.05, batch size 128, and 1,000 training plus 1,000 held-out samples; it is distinct from the 5,000-epoch Adam experiments. Both joint and single-task models used $l_{\mathrm{train}}=1$, $\gamma=1$, and a regularization offset of $10^{-8}$. The trained models are reused, and weight profiling is recomputed with the protocol specified above.
+
+For each run, the training proxy is
 \[
 C_{\mathrm{train}}=N_{\mathrm{parameters}}N_{\mathrm{train}}N_{\mathrm{epochs}}.
 \]
-The extraction proxy is the number of test-sample forward evaluations under batched perturbations,
+For scalar-weight extraction, the implemented batching proxy is
 \[
-C_{\mathrm{extract}}=N_{\mathrm{test}}\sum_b\left\lceil h_b/B_{\mathrm{perturb}}\right\rceil,
+C_{\mathrm{extract}}=N_{\mathrm{test}}\sum_b\left\lceil N_{\mathrm{weight},b}/B_{\mathrm{perturb}}\right\rceil,
 \]
-where $h_b$ is the profiled block width and $B_{\mathrm{perturb}}$ is the perturbation batch size. The cached benchmark adds these two different operation-count proxies to form a heuristic total. It is neither a FLOP count nor a wall-clock measurement, and the extraction term does not have the same parameter-count factor as the training term. The resulting comparison must therefore be interpreted only as the benchmark's heuristic accounting, not as a hardware-independent speed-up estimate. Each run is normalized by its own multitask-plus-extraction total; the five-separate-network proxy is summed across its five tasks.
+where $N_{\mathrm{weight},b}$ counts scalar weights in matrix $b$ and $B_{\mathrm{perturb}}=64$. Each joint network has 194,700 candidate weights across four matrices. Profiling performs 194,700 single-weight perturbations in 3,045 batched perturbation-forward calls, each using 1,000 held-out samples. Thus there are 194,700,000 perturbed sample evaluations, whereas the batching proxy is 3,045,000; batching does not make those two counts equivalent. The unperturbed reference evaluation and subsequent masked-network evaluations are not included in this extraction proxy.
+
+The training proxies are $1.17381\times10^{11}$ for the joint network and $5.61621\times10^{11}$ for the five separate networks combined. The benchmark adds the differently scaled training and extraction proxies to obtain a predefined heuristic total, $1.17384045\times10^{11}$ for joint training plus extraction. This sum is neither a FLOP count nor a wall-clock cost, and does not establish a hardware-independent or measured speed-up. Each run is normalized by its own joint-training-plus-extraction total; the separate-training ratio is 4.7845. Recomposition is excluded.
+
+Fresh weight extraction took a mean of 13.42 seconds (sample SD 0.33 seconds) across the three runs on the recorded CUDA device. These measurements describe the new extraction stage only; they are not combined with historical training times. The mean full-network accuracies were 0.7641 for joint training and 0.8677 for separate training, so the benchmark is not an equal-accuracy comparison. Extracted tokens retained a mean relative accuracy of 0.9527 (s.e.m. 0.0047), averaging over the five rules within each joint model and then over the three models.
 
 \begin{figure}[htbp]
 \centering

@@ -35,10 +35,16 @@ def main():
   from scripts.pipeline import full
   data=full(out,a.device)
  else:data=ROOT/'results/published'
+ checks_out=out/'checks'
+ command=[sys.executable,str(ROOT/'tests/verify_published.py'),str(checks_out),'--data',str(data),'--mode','fresh' if a.all else 'published']
+ if a.all:command.extend(['--run-root',str(out)])
+ with (out/'data_validation.log').open('w',encoding='utf8') as h:
+  subprocess.run(command,stdout=h,stderr=subprocess.STDOUT,check=True)
+ checks=json.loads((checks_out/'published_checks.json').read_text())
  from scripts.render import render
  stats=render(data,out/'figures')
  if not a.skip_tex:compile_tex(out,out/'figures')
  manifest={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in data.rglob('*') if p.is_file()} if a.from_results else {}
- report={'mode':'from-results' if a.from_results else 'all','status':'PASS','training_repeated':bool(a.all),'tex_compiled':not a.skip_tex,'input_sha256':manifest,'statistics':'figures/statistics.json'}
+ report={'mode':'from-results' if a.from_results else 'all','status':checks['status'],'execution_status':'PASS','data_validation_status':checks['data_validation_status'],'reproduction_status':checks['reproduction_status'],'reproduction_scope':checks['reproduction_scope'],'checks':'checks/published_checks.json','training_repeated':bool(a.all),'tex_compiled':not a.skip_tex,'input_sha256':manifest,'statistics':'figures/statistics.json'}
  (out/'validation.json').write_text(json.dumps(report,indent=2));print(json.dumps({k:v for k,v in report.items() if k!='input_sha256'}))
 if __name__=='__main__':main()

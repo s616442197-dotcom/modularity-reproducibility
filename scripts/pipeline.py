@@ -59,20 +59,26 @@ def smoke(out,device):
  groups=json.loads((ROOT/'configs/training_runs.json').read_text());checks=[]
  cases=[('mlp300_binary_repeat30','ablation'),('mlp300_pattern_repeat30','ablation'),('mlp_mnist_arithmetic_repeat30','ablation'),('transformer_binary_repeat30','taylor'),('mlp300_binary_ruleweight_control_w1_l5_gamma1_repeat30','ablation'),('mlp300_binary_ruleweight_rule0_w5_l5_gamma1_repeat30','ablation')]
  for name,method in cases:
-  g=next(g for g in groups if g['id']==name);rd=train(g,g['runs'][0],out/'training',device,True);result=analyze(rd,out/'analysis'/name/rd.name,method,device)
+  g=next(g for g in groups if g['id']==name);rd=train(g,g['runs'][0],out/'simulation',device,True);result=analyze(rd,out/'analysis'/name/rd.name,method,device)
   acc=np.asarray(result['weight_combo_retained_accuracy']);assert acc.shape==(5,31) and np.isfinite(acc).all()
   if name=='mlp300_binary_repeat30':
    rows,singles=nip(rd,1,5,'ablation',device,single=True);assert all(np.isfinite(r['modularity']) for r in rows) and len(singles)==25
    trows,_=nip(rd,1,5,'taylor','cpu');assert len(trows)==3
    geometry,hist=f8.compute_run_rows(rd,1,5,1,2,None,np.linspace(0,1,101),True,'relu');assert len(geometry)==10 and len(hist)==300
    recomp=f10.evaluate_recomposition_run(rd,f10.condition_from_dir(rd.parent,5),result);assert len(recomp)==3 and all(np.isfinite(r['relative_accuracy']) for r in recomp)
+   from example.composite import multitask_vs_separate_cost as cost
+   from types import SimpleNamespace
+   args=SimpleNamespace(mask_method='ablation',importance_min_score=1e-9,token_extraction_method='score_quantile',token_extraction_fraction=.75,importance_output_eps=1e-8,perturbation_batch_size=64,analysis_device=device)
+   cr,_=cost.minimal_weight_extraction(rd,out/'cost_smoke',args)
+   assert cr['extraction_total_scalar_weights']==228 and cr['extraction_batched_forward_calls']==6 and cr['analysis_samples']==20
+   assert cr['protocol']['target']=='weight' and cr['protocol']['candidate_cap'] is None
   if 'ruleweight' in name:
-   metric=rw.extract_condition_metrics(out/'analysis'/name,None if 'control' in name else 0);assert metric['num_runs']==1
+   assert result['weight_combo_subnetwork']['token_extraction_method']=='score_quantile'
   checks.append({'model':name,'epochs':2,'samples':40,'analysis':method,'retained_shape':list(acc.shape),'status':'PASS'})
  js(out/'smoke.json',{'status':'PASS','full_training':False,'checks':checks});print('Smoke training and analysis passed')
 def full(out,device):
  # Complete protocol; runtime depends on hardware. All runs start from fresh random initialization.
- groups=json.loads((ROOT/'configs/training_runs.json').read_text());base=out/'training';data=out/'results';data.mkdir();anal=out/'analysis';arrays={};selected={};threshold=[];singles=[];times=[];geometry=[];hist=[];recomp=[];weighted=[]
+ groups=json.loads((ROOT/'configs/training_runs.json').read_text());base=out/'simulation';data=out/'results';data.mkdir();anal=out/'analysis';arrays={};selected={};threshold=[];singles=[];times=[];geometry=[];hist=[];recomp=[];weighted=[]
  for group in groups:
   folder=group['id'];first=group['runs'][0];sweep='lgamma' in folder;weight='ruleweight' in folder;g=first['loss_config'].get('gamma',1);l=5*first['loss_config']['l1']
   for config in group['runs']:
@@ -100,7 +106,7 @@ def full(out,device):
  np.savez_compressed(data/'robustness.npz',**{k:np.stack(v) for k,v in arrays.items()});js(data/'selection.json',selected);js(data/'nip.json',threshold);js(data/'ruleweight_runs.json',weighted)
  for name,rows in [('single_rule',singles),('time',times),('geometry',geometry),('correlation_hist',hist),('recomposition',recomp)]:csvout(data/(name+'.csv'),rows)
  import subprocess,shutil
- cmd=[sys.executable,str(ROOT/'example/composite/multitask_vs_separate_cost.py'),'--output-root',str(out/'cost_training'),'--repeat','3','--seed','830','--num-samples','2000','--train-ratio','0.5','--pattern-size','7','--epochs','600','--batch-size','128','--lr','0.05','--optimizer-name','sgd','--hidden-dim','300','--num-modules','3','--l1','1','--single-l1','1','--gamma','1','--device',device,'--weight-decay','0','--regularization-epsilon','1e-8','--mask-method','ablation','--importance-neuron-threshold','1e-5','--importance-min-score','1e-9','--importance-output-eps','1e-8','--perturbation-batch-size','64','--analysis-device',device]
+ cmd=[sys.executable,str(ROOT/'example/composite/multitask_vs_separate_cost.py'),'--output-root',str(out/'cost_training'),'--repeat','3','--seed','830','--num-samples','2000','--train-ratio','0.5','--pattern-size','7','--epochs','600','--batch-size','128','--lr','0.05','--optimizer-name','sgd','--hidden-dim','300','--num-modules','3','--l1','1','--single-l1','1','--gamma','1','--device',device,'--weight-decay','0','--regularization-epsilon','1e-8','--mask-method','ablation','--token-extraction-method','score_quantile','--token-extraction-fraction','0.75','--importance-min-score','1e-9','--importance-output-eps','1e-8','--perturbation-batch-size','64','--analysis-device',device]
  subprocess.run(cmd,check=True)
  for name in ['multitask_runs.json','extraction_runs.json','separate_runs.json']:
   p=next((out/'cost_training').rglob(name));(data/'cost').mkdir(exist_ok=True);shutil.copy2(p,data/'cost'/name)

@@ -28505,7 +28505,7 @@
   },
   {
     "id": "mlp300_binary_ruleweight_control_w1_l5_gamma1_repeat30",
-    "source": "example/results/ruleweight/simulation/mlp300_binary_ruleweight_control_w1_l5_gamma1_repeat30",
+    "source": "example/results/fig56_300_protocol_20261020/ruleweight/simulation/mlp300_binary_ruleweight_control_w1_l5_gamma1_repeat30",
     "runs": [
       {
         "dataset": "BinaryPairDataset",
@@ -28534,6 +28534,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -28541,14 +28545,14 @@
           3,
           4
         ],
+        "run": "run_000",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_000"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -28577,6 +28581,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -28584,14 +28592,14 @@
           3,
           4
         ],
+        "run": "run_001",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_001"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -28620,6 +28628,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -28627,14 +28639,14 @@
           3,
           4
         ],
+        "run": "run_002",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_002"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -28663,6 +28675,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -28670,14 +28686,14 @@
           3,
           4
         ],
+        "run": "run_003",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_003"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -28706,6 +28722,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -28713,14 +28733,14 @@
           3,
           4
         ],
+        "run": "run_004",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_004"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -28749,6 +28769,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -28756,14 +28780,14 @@
           3,
           4
         ],
+        "run": "run_005",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_005"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -28792,6 +28816,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -28799,14 +28827,14 @@
           3,
           4
         ],
+        "run": "run_006",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_006"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -28835,6 +28863,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -28842,14 +28874,14 @@
           3,
           4
         ],
+        "run": "run_007",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_007"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -28878,6 +28910,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -28885,14 +28921,14 @@
           3,
           4
         ],
+        "run": "run_008",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_008"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -28921,6 +28957,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -28928,14 +28968,14 @@
           3,
           4
         ],
+        "run": "run_009",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_009"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -28964,6 +29004,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -28971,14 +29015,14 @@
           3,
           4
         ],
+        "run": "run_010",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_010"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29007,6 +29051,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29014,14 +29062,14 @@
           3,
           4
         ],
+        "run": "run_011",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_011"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29050,6 +29098,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29057,14 +29109,14 @@
           3,
           4
         ],
+        "run": "run_012",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_012"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29093,6 +29145,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29100,14 +29156,14 @@
           3,
           4
         ],
+        "run": "run_013",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_013"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29136,6 +29192,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29143,14 +29203,14 @@
           3,
           4
         ],
+        "run": "run_014",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_014"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29179,6 +29239,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29186,14 +29250,14 @@
           3,
           4
         ],
+        "run": "run_015",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_015"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29222,6 +29286,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29229,14 +29297,14 @@
           3,
           4
         ],
+        "run": "run_016",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_016"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29265,6 +29333,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29272,14 +29344,14 @@
           3,
           4
         ],
+        "run": "run_017",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_017"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29308,6 +29380,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29315,14 +29391,14 @@
           3,
           4
         ],
+        "run": "run_018",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_018"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29351,6 +29427,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29358,14 +29438,14 @@
           3,
           4
         ],
+        "run": "run_019",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_019"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29394,6 +29474,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29401,14 +29485,14 @@
           3,
           4
         ],
+        "run": "run_020",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_020"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29437,6 +29521,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29444,14 +29532,14 @@
           3,
           4
         ],
+        "run": "run_021",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_021"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29480,6 +29568,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29487,14 +29579,14 @@
           3,
           4
         ],
+        "run": "run_022",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_022"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29523,6 +29615,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29530,14 +29626,14 @@
           3,
           4
         ],
+        "run": "run_023",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_023"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29566,6 +29662,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29573,14 +29673,14 @@
           3,
           4
         ],
+        "run": "run_024",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_024"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29609,6 +29709,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29616,14 +29720,14 @@
           3,
           4
         ],
+        "run": "run_025",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_025"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29652,6 +29756,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29659,14 +29767,14 @@
           3,
           4
         ],
+        "run": "run_026",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_026"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29695,6 +29803,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29702,14 +29814,14 @@
           3,
           4
         ],
+        "run": "run_027",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_027"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29738,6 +29850,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29745,14 +29861,14 @@
           3,
           4
         ],
+        "run": "run_028",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_028"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29781,6 +29897,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29788,32 +29908,32 @@
           3,
           4
         ],
+        "run": "run_029",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_029"
+        ]
       }
     ],
     "state_shapes": {
       "modules_list_0_linear1_weight": [
-        500,
+        300,
         14
       ],
       "modules_list_1_linear1_weight": [
-        500,
-        500
+        300,
+        300
       ],
       "modules_list_2_linear1_weight": [
-        500,
-        500
+        300,
+        300
       ],
       "output_block_linear1_weight": [
         35,
-        500
+        300
       ]
     },
     "state_metadata": {
@@ -29836,7 +29956,7 @@
   },
   {
     "id": "mlp300_binary_ruleweight_rule0_w5_l5_gamma1_repeat30",
-    "source": "example/results/ruleweight/simulation/mlp300_binary_ruleweight_rule0_w5_l5_gamma1_repeat30",
+    "source": "example/results/fig56_300_protocol_20261020/ruleweight/simulation/mlp300_binary_ruleweight_rule0_w5_l5_gamma1_repeat30",
     "runs": [
       {
         "dataset": "BinaryPairDataset",
@@ -29865,6 +29985,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29872,14 +29996,14 @@
           3,
           4
         ],
+        "run": "run_000",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_000"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29908,6 +30032,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29915,14 +30043,14 @@
           3,
           4
         ],
+        "run": "run_001",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_001"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29951,6 +30079,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -29958,14 +30090,14 @@
           3,
           4
         ],
+        "run": "run_002",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_002"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -29994,6 +30126,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30001,14 +30137,14 @@
           3,
           4
         ],
+        "run": "run_003",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_003"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30037,6 +30173,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30044,14 +30184,14 @@
           3,
           4
         ],
+        "run": "run_004",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_004"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30080,6 +30220,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30087,14 +30231,14 @@
           3,
           4
         ],
+        "run": "run_005",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_005"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30123,6 +30267,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30130,14 +30278,14 @@
           3,
           4
         ],
+        "run": "run_006",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_006"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30166,6 +30314,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30173,14 +30325,14 @@
           3,
           4
         ],
+        "run": "run_007",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_007"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30209,6 +30361,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30216,14 +30372,14 @@
           3,
           4
         ],
+        "run": "run_008",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_008"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30252,6 +30408,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30259,14 +30419,14 @@
           3,
           4
         ],
+        "run": "run_009",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_009"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30295,6 +30455,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30302,14 +30466,14 @@
           3,
           4
         ],
+        "run": "run_010",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_010"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30338,6 +30502,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30345,14 +30513,14 @@
           3,
           4
         ],
+        "run": "run_011",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_011"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30381,6 +30549,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30388,14 +30560,14 @@
           3,
           4
         ],
+        "run": "run_012",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_012"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30424,6 +30596,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30431,14 +30607,14 @@
           3,
           4
         ],
+        "run": "run_013",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_013"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30467,6 +30643,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30474,14 +30654,14 @@
           3,
           4
         ],
+        "run": "run_014",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_014"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30510,6 +30690,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30517,14 +30701,14 @@
           3,
           4
         ],
+        "run": "run_015",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_015"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30553,6 +30737,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30560,14 +30748,14 @@
           3,
           4
         ],
+        "run": "run_016",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_016"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30596,6 +30784,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30603,14 +30795,14 @@
           3,
           4
         ],
+        "run": "run_017",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_017"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30639,6 +30831,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30646,14 +30842,14 @@
           3,
           4
         ],
+        "run": "run_018",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_018"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30682,6 +30878,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30689,14 +30889,14 @@
           3,
           4
         ],
+        "run": "run_019",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_019"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30725,6 +30925,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30732,14 +30936,14 @@
           3,
           4
         ],
+        "run": "run_020",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_020"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30768,6 +30972,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30775,14 +30983,14 @@
           3,
           4
         ],
+        "run": "run_021",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_021"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30811,6 +31019,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30818,14 +31030,14 @@
           3,
           4
         ],
+        "run": "run_022",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_022"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30854,6 +31066,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30861,14 +31077,14 @@
           3,
           4
         ],
+        "run": "run_023",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_023"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30897,6 +31113,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30904,14 +31124,14 @@
           3,
           4
         ],
+        "run": "run_024",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_024"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30940,6 +31160,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30947,14 +31171,14 @@
           3,
           4
         ],
+        "run": "run_025",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_025"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -30983,6 +31207,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -30990,14 +31218,14 @@
           3,
           4
         ],
+        "run": "run_026",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_026"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31026,6 +31254,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31033,14 +31265,14 @@
           3,
           4
         ],
+        "run": "run_027",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_027"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31069,6 +31301,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31076,14 +31312,14 @@
           3,
           4
         ],
+        "run": "run_028",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_028"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31112,6 +31348,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31119,32 +31359,32 @@
           3,
           4
         ],
+        "run": "run_029",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_029"
+        ]
       }
     ],
     "state_shapes": {
       "modules_list_0_linear1_weight": [
-        500,
+        300,
         14
       ],
       "modules_list_1_linear1_weight": [
-        500,
-        500
+        300,
+        300
       ],
       "modules_list_2_linear1_weight": [
-        500,
-        500
+        300,
+        300
       ],
       "output_block_linear1_weight": [
         35,
-        500
+        300
       ]
     },
     "state_metadata": {
@@ -31167,7 +31407,7 @@
   },
   {
     "id": "mlp300_binary_ruleweight_rule1_w5_l5_gamma1_repeat30",
-    "source": "example/results/ruleweight/simulation/mlp300_binary_ruleweight_rule1_w5_l5_gamma1_repeat30",
+    "source": "example/results/fig56_300_protocol_20261020/ruleweight/simulation/mlp300_binary_ruleweight_rule1_w5_l5_gamma1_repeat30",
     "runs": [
       {
         "dataset": "BinaryPairDataset",
@@ -31196,6 +31436,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31203,14 +31447,14 @@
           3,
           4
         ],
+        "run": "run_000",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_000"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31239,6 +31483,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31246,14 +31494,14 @@
           3,
           4
         ],
+        "run": "run_001",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_001"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31282,6 +31530,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31289,14 +31541,14 @@
           3,
           4
         ],
+        "run": "run_002",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_002"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31325,6 +31577,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31332,14 +31588,14 @@
           3,
           4
         ],
+        "run": "run_003",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_003"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31368,6 +31624,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31375,14 +31635,14 @@
           3,
           4
         ],
+        "run": "run_004",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_004"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31411,6 +31671,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31418,14 +31682,14 @@
           3,
           4
         ],
+        "run": "run_005",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_005"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31454,6 +31718,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31461,14 +31729,14 @@
           3,
           4
         ],
+        "run": "run_006",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_006"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31497,6 +31765,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31504,14 +31776,14 @@
           3,
           4
         ],
+        "run": "run_007",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_007"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31540,6 +31812,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31547,14 +31823,14 @@
           3,
           4
         ],
+        "run": "run_008",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_008"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31583,6 +31859,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31590,14 +31870,14 @@
           3,
           4
         ],
+        "run": "run_009",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_009"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31626,6 +31906,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31633,14 +31917,14 @@
           3,
           4
         ],
+        "run": "run_010",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_010"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31669,6 +31953,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31676,14 +31964,14 @@
           3,
           4
         ],
+        "run": "run_011",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_011"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31712,6 +32000,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31719,14 +32011,14 @@
           3,
           4
         ],
+        "run": "run_012",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_012"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31755,6 +32047,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31762,14 +32058,14 @@
           3,
           4
         ],
+        "run": "run_013",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_013"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31798,6 +32094,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31805,14 +32105,14 @@
           3,
           4
         ],
+        "run": "run_014",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_014"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31841,6 +32141,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31848,14 +32152,14 @@
           3,
           4
         ],
+        "run": "run_015",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_015"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31884,6 +32188,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31891,14 +32199,14 @@
           3,
           4
         ],
+        "run": "run_016",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_016"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31927,6 +32235,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31934,14 +32246,14 @@
           3,
           4
         ],
+        "run": "run_017",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_017"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -31970,6 +32282,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -31977,14 +32293,14 @@
           3,
           4
         ],
+        "run": "run_018",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_018"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32013,6 +32329,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32020,14 +32340,14 @@
           3,
           4
         ],
+        "run": "run_019",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_019"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32056,6 +32376,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32063,14 +32387,14 @@
           3,
           4
         ],
+        "run": "run_020",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_020"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32099,6 +32423,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32106,14 +32434,14 @@
           3,
           4
         ],
+        "run": "run_021",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_021"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32142,6 +32470,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32149,14 +32481,14 @@
           3,
           4
         ],
+        "run": "run_022",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_022"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32185,6 +32517,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32192,14 +32528,14 @@
           3,
           4
         ],
+        "run": "run_023",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_023"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32228,6 +32564,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32235,14 +32575,14 @@
           3,
           4
         ],
+        "run": "run_024",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_024"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32271,6 +32611,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32278,14 +32622,14 @@
           3,
           4
         ],
+        "run": "run_025",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_025"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32314,6 +32658,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32321,14 +32669,14 @@
           3,
           4
         ],
+        "run": "run_026",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_026"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32357,6 +32705,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32364,14 +32716,14 @@
           3,
           4
         ],
+        "run": "run_027",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_027"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32400,6 +32752,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32407,14 +32763,14 @@
           3,
           4
         ],
+        "run": "run_028",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_028"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32443,6 +32799,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32450,32 +32810,32 @@
           3,
           4
         ],
+        "run": "run_029",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_029"
+        ]
       }
     ],
     "state_shapes": {
       "modules_list_0_linear1_weight": [
-        500,
+        300,
         14
       ],
       "modules_list_1_linear1_weight": [
-        500,
-        500
+        300,
+        300
       ],
       "modules_list_2_linear1_weight": [
-        500,
-        500
+        300,
+        300
       ],
       "output_block_linear1_weight": [
         35,
-        500
+        300
       ]
     },
     "state_metadata": {
@@ -32498,7 +32858,7 @@
   },
   {
     "id": "mlp300_binary_ruleweight_rule2_w5_l5_gamma1_repeat30",
-    "source": "example/results/ruleweight/simulation/mlp300_binary_ruleweight_rule2_w5_l5_gamma1_repeat30",
+    "source": "example/results/fig56_300_protocol_20261020/ruleweight/simulation/mlp300_binary_ruleweight_rule2_w5_l5_gamma1_repeat30",
     "runs": [
       {
         "dataset": "BinaryPairDataset",
@@ -32527,6 +32887,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32534,14 +32898,14 @@
           3,
           4
         ],
+        "run": "run_000",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_000"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32570,6 +32934,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32577,14 +32945,14 @@
           3,
           4
         ],
+        "run": "run_001",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_001"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32613,6 +32981,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32620,14 +32992,14 @@
           3,
           4
         ],
+        "run": "run_002",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_002"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32656,6 +33028,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32663,14 +33039,14 @@
           3,
           4
         ],
+        "run": "run_003",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_003"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32699,6 +33075,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32706,14 +33086,14 @@
           3,
           4
         ],
+        "run": "run_004",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_004"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32742,6 +33122,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32749,14 +33133,14 @@
           3,
           4
         ],
+        "run": "run_005",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_005"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32785,6 +33169,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32792,14 +33180,14 @@
           3,
           4
         ],
+        "run": "run_006",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_006"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32828,6 +33216,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32835,14 +33227,14 @@
           3,
           4
         ],
+        "run": "run_007",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_007"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32871,6 +33263,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32878,14 +33274,14 @@
           3,
           4
         ],
+        "run": "run_008",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_008"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32914,6 +33310,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32921,14 +33321,14 @@
           3,
           4
         ],
+        "run": "run_009",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_009"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -32957,6 +33357,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -32964,14 +33368,14 @@
           3,
           4
         ],
+        "run": "run_010",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_010"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33000,6 +33404,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33007,14 +33415,14 @@
           3,
           4
         ],
+        "run": "run_011",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_011"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33043,6 +33451,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33050,14 +33462,14 @@
           3,
           4
         ],
+        "run": "run_012",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_012"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33086,6 +33498,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33093,14 +33509,14 @@
           3,
           4
         ],
+        "run": "run_013",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_013"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33129,6 +33545,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33136,14 +33556,14 @@
           3,
           4
         ],
+        "run": "run_014",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_014"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33172,6 +33592,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33179,14 +33603,14 @@
           3,
           4
         ],
+        "run": "run_015",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_015"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33215,6 +33639,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33222,14 +33650,14 @@
           3,
           4
         ],
+        "run": "run_016",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_016"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33258,6 +33686,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33265,14 +33697,14 @@
           3,
           4
         ],
+        "run": "run_017",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_017"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33301,6 +33733,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33308,14 +33744,14 @@
           3,
           4
         ],
+        "run": "run_018",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_018"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33344,6 +33780,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33351,14 +33791,14 @@
           3,
           4
         ],
+        "run": "run_019",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_019"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33387,6 +33827,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33394,14 +33838,14 @@
           3,
           4
         ],
+        "run": "run_020",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_020"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33430,6 +33874,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33437,14 +33885,14 @@
           3,
           4
         ],
+        "run": "run_021",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_021"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33473,6 +33921,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33480,14 +33932,14 @@
           3,
           4
         ],
+        "run": "run_022",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_022"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33516,6 +33968,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33523,14 +33979,14 @@
           3,
           4
         ],
+        "run": "run_023",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_023"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33559,6 +34015,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33566,14 +34026,14 @@
           3,
           4
         ],
+        "run": "run_024",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_024"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33602,6 +34062,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33609,14 +34073,14 @@
           3,
           4
         ],
+        "run": "run_025",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_025"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33645,6 +34109,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33652,14 +34120,14 @@
           3,
           4
         ],
+        "run": "run_026",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_026"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33688,6 +34156,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33695,14 +34167,14 @@
           3,
           4
         ],
+        "run": "run_027",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_027"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33731,6 +34203,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33738,14 +34214,14 @@
           3,
           4
         ],
+        "run": "run_028",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_028"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33774,6 +34250,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33781,32 +34261,32 @@
           3,
           4
         ],
+        "run": "run_029",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_029"
+        ]
       }
     ],
     "state_shapes": {
       "modules_list_0_linear1_weight": [
-        500,
+        300,
         14
       ],
       "modules_list_1_linear1_weight": [
-        500,
-        500
+        300,
+        300
       ],
       "modules_list_2_linear1_weight": [
-        500,
-        500
+        300,
+        300
       ],
       "output_block_linear1_weight": [
         35,
-        500
+        300
       ]
     },
     "state_metadata": {
@@ -33829,7 +34309,7 @@
   },
   {
     "id": "mlp300_binary_ruleweight_rule3_w5_l5_gamma1_repeat30",
-    "source": "example/results/ruleweight/simulation/mlp300_binary_ruleweight_rule3_w5_l5_gamma1_repeat30",
+    "source": "example/results/fig56_300_protocol_20261020/ruleweight/simulation/mlp300_binary_ruleweight_rule3_w5_l5_gamma1_repeat30",
     "runs": [
       {
         "dataset": "BinaryPairDataset",
@@ -33858,6 +34338,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33865,14 +34349,14 @@
           3,
           4
         ],
+        "run": "run_000",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_000"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33901,6 +34385,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33908,14 +34396,14 @@
           3,
           4
         ],
+        "run": "run_001",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_001"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33944,6 +34432,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33951,14 +34443,14 @@
           3,
           4
         ],
+        "run": "run_002",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_002"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -33987,6 +34479,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -33994,14 +34490,14 @@
           3,
           4
         ],
+        "run": "run_003",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_003"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34030,6 +34526,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34037,14 +34537,14 @@
           3,
           4
         ],
+        "run": "run_004",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_004"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34073,6 +34573,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34080,14 +34584,14 @@
           3,
           4
         ],
+        "run": "run_005",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_005"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34116,6 +34620,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34123,14 +34631,14 @@
           3,
           4
         ],
+        "run": "run_006",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_006"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34159,6 +34667,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34166,14 +34678,14 @@
           3,
           4
         ],
+        "run": "run_007",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_007"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34202,6 +34714,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34209,14 +34725,14 @@
           3,
           4
         ],
+        "run": "run_008",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_008"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34245,6 +34761,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34252,14 +34772,14 @@
           3,
           4
         ],
+        "run": "run_009",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_009"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34288,6 +34808,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34295,14 +34819,14 @@
           3,
           4
         ],
+        "run": "run_010",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_010"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34331,6 +34855,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34338,14 +34866,14 @@
           3,
           4
         ],
+        "run": "run_011",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_011"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34374,6 +34902,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34381,14 +34913,14 @@
           3,
           4
         ],
+        "run": "run_012",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_012"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34417,6 +34949,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34424,14 +34960,14 @@
           3,
           4
         ],
+        "run": "run_013",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_013"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34460,6 +34996,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34467,14 +35007,14 @@
           3,
           4
         ],
+        "run": "run_014",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_014"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34503,6 +35043,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34510,14 +35054,14 @@
           3,
           4
         ],
+        "run": "run_015",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_015"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34546,6 +35090,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34553,14 +35101,14 @@
           3,
           4
         ],
+        "run": "run_016",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_016"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34589,6 +35137,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34596,14 +35148,14 @@
           3,
           4
         ],
+        "run": "run_017",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_017"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34632,6 +35184,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34639,14 +35195,14 @@
           3,
           4
         ],
+        "run": "run_018",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_018"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34675,6 +35231,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34682,14 +35242,14 @@
           3,
           4
         ],
+        "run": "run_019",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_019"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34718,6 +35278,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34725,14 +35289,14 @@
           3,
           4
         ],
+        "run": "run_020",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_020"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34761,6 +35325,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34768,14 +35336,14 @@
           3,
           4
         ],
+        "run": "run_021",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_021"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34804,6 +35372,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34811,14 +35383,14 @@
           3,
           4
         ],
+        "run": "run_022",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_022"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34847,6 +35419,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34854,14 +35430,14 @@
           3,
           4
         ],
+        "run": "run_023",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_023"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34890,6 +35466,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34897,14 +35477,14 @@
           3,
           4
         ],
+        "run": "run_024",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_024"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34933,6 +35513,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34940,14 +35524,14 @@
           3,
           4
         ],
+        "run": "run_025",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_025"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -34976,6 +35560,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -34983,14 +35571,14 @@
           3,
           4
         ],
+        "run": "run_026",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_026"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35019,6 +35607,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35026,14 +35618,14 @@
           3,
           4
         ],
+        "run": "run_027",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_027"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35062,6 +35654,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35069,14 +35665,14 @@
           3,
           4
         ],
+        "run": "run_028",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_028"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35105,6 +35701,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35112,32 +35712,32 @@
           3,
           4
         ],
+        "run": "run_029",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_029"
+        ]
       }
     ],
     "state_shapes": {
       "modules_list_0_linear1_weight": [
-        500,
+        300,
         14
       ],
       "modules_list_1_linear1_weight": [
-        500,
-        500
+        300,
+        300
       ],
       "modules_list_2_linear1_weight": [
-        500,
-        500
+        300,
+        300
       ],
       "output_block_linear1_weight": [
         35,
-        500
+        300
       ]
     },
     "state_metadata": {
@@ -35160,7 +35760,7 @@
   },
   {
     "id": "mlp300_binary_ruleweight_rule4_w5_l5_gamma1_repeat30",
-    "source": "example/results/ruleweight/simulation/mlp300_binary_ruleweight_rule4_w5_l5_gamma1_repeat30",
+    "source": "example/results/fig56_300_protocol_20261020/ruleweight/simulation/mlp300_binary_ruleweight_rule4_w5_l5_gamma1_repeat30",
     "runs": [
       {
         "dataset": "BinaryPairDataset",
@@ -35189,6 +35789,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35196,14 +35800,14 @@
           3,
           4
         ],
+        "run": "run_000",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_000"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35232,6 +35836,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35239,14 +35847,14 @@
           3,
           4
         ],
+        "run": "run_001",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_001"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35275,6 +35883,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35282,14 +35894,14 @@
           3,
           4
         ],
+        "run": "run_002",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_002"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35318,6 +35930,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35325,14 +35941,14 @@
           3,
           4
         ],
+        "run": "run_003",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_003"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35361,6 +35977,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35368,14 +35988,14 @@
           3,
           4
         ],
+        "run": "run_004",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_004"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35404,6 +36024,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35411,14 +36035,14 @@
           3,
           4
         ],
+        "run": "run_005",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_005"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35447,6 +36071,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35454,14 +36082,14 @@
           3,
           4
         ],
+        "run": "run_006",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_006"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35490,6 +36118,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35497,14 +36129,14 @@
           3,
           4
         ],
+        "run": "run_007",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_007"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35533,6 +36165,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35540,14 +36176,14 @@
           3,
           4
         ],
+        "run": "run_008",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_008"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35576,6 +36212,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35583,14 +36223,14 @@
           3,
           4
         ],
+        "run": "run_009",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_009"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35619,6 +36259,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35626,14 +36270,14 @@
           3,
           4
         ],
+        "run": "run_010",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_010"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35662,6 +36306,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35669,14 +36317,14 @@
           3,
           4
         ],
+        "run": "run_011",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_011"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35705,6 +36353,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35712,14 +36364,14 @@
           3,
           4
         ],
+        "run": "run_012",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_012"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35748,6 +36400,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35755,14 +36411,14 @@
           3,
           4
         ],
+        "run": "run_013",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_013"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35791,6 +36447,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35798,14 +36458,14 @@
           3,
           4
         ],
+        "run": "run_014",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_014"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35834,6 +36494,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35841,14 +36505,14 @@
           3,
           4
         ],
+        "run": "run_015",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_015"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35877,6 +36541,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35884,14 +36552,14 @@
           3,
           4
         ],
+        "run": "run_016",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_016"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35920,6 +36588,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35927,14 +36599,14 @@
           3,
           4
         ],
+        "run": "run_017",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_017"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -35963,6 +36635,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -35970,14 +36646,14 @@
           3,
           4
         ],
+        "run": "run_018",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_018"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -36006,6 +36682,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -36013,14 +36693,14 @@
           3,
           4
         ],
+        "run": "run_019",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_019"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -36049,6 +36729,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -36056,14 +36740,14 @@
           3,
           4
         ],
+        "run": "run_020",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_020"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -36092,6 +36776,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -36099,14 +36787,14 @@
           3,
           4
         ],
+        "run": "run_021",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_021"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -36135,6 +36823,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -36142,14 +36834,14 @@
           3,
           4
         ],
+        "run": "run_022",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_022"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -36178,6 +36870,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -36185,14 +36881,14 @@
           3,
           4
         ],
+        "run": "run_023",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_023"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -36221,6 +36917,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -36228,14 +36928,14 @@
           3,
           4
         ],
+        "run": "run_024",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_024"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -36264,6 +36964,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -36271,14 +36975,14 @@
           3,
           4
         ],
+        "run": "run_025",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_025"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -36307,6 +37011,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -36314,14 +37022,14 @@
           3,
           4
         ],
+        "run": "run_026",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_026"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -36350,6 +37058,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -36357,14 +37069,14 @@
           3,
           4
         ],
+        "run": "run_027",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_027"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -36393,6 +37105,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -36400,14 +37116,14 @@
           3,
           4
         ],
+        "run": "run_028",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_028"
+        ]
       },
       {
         "dataset": "BinaryPairDataset",
@@ -36436,6 +37152,10 @@
         "weight_decay": 0.0,
         "snapshot_every": 1000,
         "eval_every": null,
+        "hidden_dim": 300,
+        "num_modules": 3,
+        "num_samples": 5000,
+        "train_ratio": 0.5,
         "rule_indices": [
           0,
           1,
@@ -36443,32 +37163,32 @@
           3,
           4
         ],
+        "run": "run_029",
         "rule_names": [
           "x+y",
           "x*y",
           "x^2",
           "y^2",
           "x*(x+y)"
-        ],
-        "run": "run_029"
+        ]
       }
     ],
     "state_shapes": {
       "modules_list_0_linear1_weight": [
-        500,
+        300,
         14
       ],
       "modules_list_1_linear1_weight": [
-        500,
-        500
+        300,
+        300
       ],
       "modules_list_2_linear1_weight": [
-        500,
-        500
+        300,
+        300
       ],
       "output_block_linear1_weight": [
         35,
-        500
+        300
       ]
     },
     "state_metadata": {

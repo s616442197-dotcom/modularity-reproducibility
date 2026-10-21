@@ -3264,6 +3264,39 @@ def parse_optional_int(value: str) -> int | None:
     return int(value)
 
 
+
+def weight_combo_protocol_matches(combo, *, mask_method='ablation',
+                                  min_score=1e-9, output_eps=1e-8,
+                                  extraction_method='score_quantile', fraction=0.75,
+                                  max_elements_per_block=None, state=None):
+    """Reject incompatible/incomplete saved masks; no defaults stand in for metadata."""
+    required = {'mask_method': mask_method, 'importance_min_score': min_score,
+                'importance_output_eps': output_eps,
+                'token_extraction_method': extraction_method,
+                'token_extraction_fraction': fraction,
+                'max_elements_per_block': max_elements_per_block}
+    if any(key not in combo or combo[key] != value for key, value in required.items()):
+        return False
+    blocks = combo.get('blocks', [])
+    if not blocks or any(not str(b.get('key', '')).endswith('_weight') for b in blocks):
+        return False
+    if state is not None:
+        expected = {b['key']: tuple(b['shape']) for b in weight_block_specs(state)}
+        if {b['key']: tuple(b['shape']) for b in blocks} != expected:
+            return False
+    for block in blocks:
+        if any(block.get(k) != v for k, v in required.items() if k != 'max_elements_per_block'):
+            return False
+        n = int(np.prod(block['shape']))
+        candidates = np.asarray(block.get('candidate_flat_indices', []), dtype=int)
+        if max_elements_per_block is None and not np.array_equal(candidates, np.arange(n)):
+            return False
+        mask = np.asarray(block.get('important_mask', []))
+        if mask.ndim != 2 or mask.shape[1] != len(candidates):
+            return False
+    return True
+
+
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()

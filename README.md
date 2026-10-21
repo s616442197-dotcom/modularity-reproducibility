@@ -4,7 +4,7 @@ Research code for **Sparsity-driven emergence of functional modularity in multit
 
 **Verification status:** statistics and all six main figures plus Fig. S1 have been rebuilt from the supplied observations; small training/analysis integrations pass. The complete 923-run, 5,000-epoch training protocol has an executable entry point but has **not** been rerun in this packaging task. Numerical agreement of a fresh full training run is therefore not yet demonstrated. See [validation](docs/validation.md).
 
-**Known manuscript discrepancy:** saved task-weighting models used in Fig.5 have **500 hidden units**, despite their `mlp300` directory names and the manuscript's general 300-unit description. Training here follows the saved tensor dimensions (500 for Fig.5, 300 for the other MLP experiments). The supplied manuscript and reference figures are preserved; this discrepancy is recorded, not silently changed. See [protocol](docs/protocol.md).
+**Current Fig.5–6/S1 data:** Fig.5 now uses 180 newly trained models with three 300-unit hidden layers (six conditions, seeds 300–329). Fig.6 recomposition and the cost experiment use exhaustive scalar-weight extraction, quantile 0.75 and score floor 1e-9. The earlier 500-unit and neuron-extraction observations are not used by the supported entry point. See [protocol](docs/protocol.md) and [current source manifest](docs/current_source_manifest.json).
 
 ## Install
 
@@ -49,7 +49,9 @@ python reproduce.py --compile-reference --output outputs/reference
 
 Full training is computationally expensive: 923 saved run configurations, regular checkpoints, exhaustive single-weight ablation where applicable, and the separate 3-repeat cost experiment. Resource use has not been benchmarked for a full rerun. There is no automatic resume: preserve an interrupted output, inspect its records, and use a fresh output directory for a new full run. Fixed seeds do not guarantee bitwise equality across hardware or software versions.
 
-The reconstruction output includes `figures/main_fig1.pdf` through `main_fig6.pdf`, `figures/supp_training_cost.pdf`, `figures/statistics.json`, and (unless skipped) `manuscript/modularity.pdf` and `manuscript/sup.pdf`. Reference figures keep the original layout; portable redraws preserve the scientific panel content/order but use portable fonts and may differ in spacing. PDF/SVG schematics remain vector graphics. PNG files are only previews; the final merged PDFs include the schematics.
+The reconstruction output includes `figures/main_fig1.pdf` through `main_fig6.pdf`, `figures/supp_training_cost.pdf`, `figures/statistics.json`, and (unless skipped) `manuscript/modularity.pdf` and `manuscript/sup.pdf`. Reference figures keep the original layout; portable redraws preserve the scientific panel content/order but use portable fonts and may differ in spacing. PDF/SVG schematics remain vector graphics. PNG previews are rendered from the final merged PDFs, including schematics and panel labels, using the pinned `pypdfium2` dependency.
+
+Every result-based/full run validates its own data directory before rendering. `validation.json` separates execution, data validation and reproduction status. Published-data PASS covers the bundled observations and reference statistics only; it is not a fresh-training claim. Fresh `--all` results remain PARTIAL / reproduction NOT_CHECKED after configuration, shape, mask, pairing and statistics checks: their reference differences are recorded for scientific review, without demanding bitwise equality or automatically certifying the manuscript's conclusions. To recheck a fresh output explicitly, run `python tests/verify_published.py outputs/full/checks_review --data outputs/full/results --mode fresh --run-root outputs/full`. Regression tests are available via `python tests/test_delivery_validation.py`.
 
 ## Figure-to-code map
 

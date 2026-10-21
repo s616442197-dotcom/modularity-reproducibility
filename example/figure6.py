@@ -26,7 +26,7 @@ import analysis as ana
 import ruleweight as rw
 
 
-DEFAULT_RESULTS_ROOT = ROOT / "example/results/ruleweight"
+DEFAULT_RESULTS_ROOT = rw.OUTPUT_ROOT
 DEFAULT_OUTPUT_DIR = DEFAULT_RESULTS_ROOT / "figures"
 DEFAULT_ARTICLE_FIG6 = ROOT / "article/figs/fig6.pdf"
 DEFAULT_FORMATS = "png,pdf,svg"
@@ -388,6 +388,8 @@ def paired_trial_rows(condition_metrics: list[dict[str, Any]]) -> list[dict[str,
         rule_id = metric["upweighted_rule"]
         if rule_id is None:
             continue
+        if not metric.get('pairing') or metric.get('pairing') != control.get('pairing'):
+            raise ValueError('Paired inference requires identical saved run IDs, seeds and analysis data across conditions')
         rule_pos = rw.RULE_INDICES.index(int(rule_id))
         accuracy = np.asarray(metric["baseline_acc_runs"], dtype=float)[:, rule_pos]
         control_accuracy = np.asarray(control["baseline_acc_runs"], dtype=float)[:, rule_pos]
@@ -487,15 +489,13 @@ def generate_figure(
     accuracy_delta, weight_delta, specialization = figure_matrices(summary)
     trial_rows = paired_trial_rows(condition_metrics)
 
-    fig = plt.figure(figsize=(7.45, 8.45))
-    grid = fig.add_gridspec(3, 2, height_ratios=(1.0, 1.0, 0.92))
-    axes = {
-        "a": fig.add_subplot(grid[0, 0]),
-        "b": fig.add_subplot(grid[0, 1]),
-        "c": fig.add_subplot(grid[1, 0]),
-        "d": fig.add_subplot(grid[1, 1]),
-        "e": fig.add_subplot(grid[2, :]),
-    }
+    # Fixed manuscript geometry: three matrices above two scatter panels.
+    fig = plt.figure(figsize=(7.5, 5.1))
+    axes = {"a":fig.add_axes([.08,.60,.215,.31]),
+            "b":fig.add_axes([.405,.60,.215,.31]),
+            "c":fig.add_axes([.73,.60,.215,.31]),
+            "d":fig.add_axes([.10,.15,.34,.30]),
+            "e":fig.add_axes([.61,.15,.34,.30])}
     draw_heatmap(
         fig,
         axes["a"],
@@ -532,7 +532,28 @@ def generate_figure(
     draw_matched_scatter(fig, axes["d"], summary)
     correlation, p_value = draw_trial_scatter(axes["e"], trial_rows)
 
-    fig.subplots_adjust(left=0.105, right=0.965, bottom=0.075, top=0.965, wspace=0.48, hspace=0.56)
+    # Scale labels to the final journal width rather than relying on tight_layout.
+    for ax in fig.axes:
+        ax.tick_params(labelsize=6)
+        ax.xaxis.label.set_fontsize(6.5)
+        ax.yaxis.label.set_fontsize(6.5)
+        for text in ax.texts:
+            text.set_fontsize(12 if text.get_text() in "abcde" else 5.8)
+        ax.title.set_fontsize(7)
+    axes["a"].set_title("Whole-network\naccuracy change",fontsize=7,loc="left",pad=7)
+    axes["b"].set_title("Retained weight-ratio\nchange",fontsize=7,loc="left",pad=7)
+    axes["c"].set_title("Functional-token\nspecialization",fontsize=7,loc="left",pad=7)
+    # The matrices share the row variable; label it once to avoid colorbar overlap.
+    axes["b"].set_ylabel("")
+    axes["c"].set_ylabel("")
+    axes["d"].set_title("Matched target-rule response",fontsize=7,loc="left")
+    axes["e"].set_title("Paired trial-level response",fontsize=7,loc="left")
+    axes["d"].set_ylabel("Target-rule weight-ratio change ($\\times10^{-4}$)",fontsize=6.5)
+    axes["e"].set_xlabel("Target-rule retained weight-ratio change ($\\times10^{-4}$)",fontsize=6.3)
+    for key in ["d","e"]:
+        axes[key].legend(loc="upper center",bbox_to_anchor=(.5,-.34),ncol=3,
+                         frameon=False,fontsize=6,handletextpad=.3,columnspacing=.7)
+
     output_dir.mkdir(parents=True, exist_ok=True)
     output_paths = []
     for fmt in formats:
@@ -590,6 +611,8 @@ def main() -> None:
         "paired_trial_count": len(trial_rows),
         "paired_trial_pearson_r": correlation,
         "paired_trial_pearson_p": p_value,
+        "p_value_interpretation": "nominal unadjusted pooled Pearson p; shared seeds and controls are not independent clusters",
+        "error_bar_definition": "quadrature of marginal population-SD/sqrt(n) estimates; not paired-difference SEM",
         "outputs": [str(path) for path in output_paths],
     }
     (args.output_dir / "figure6_summary.json").write_text(

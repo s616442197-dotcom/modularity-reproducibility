@@ -7,6 +7,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from pypdf import PdfReader, PdfWriter, Transformation
+import pypdfium2 as pdfium
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT),str(ROOT/'example')]
 import figure2 as f2, figure4 as f4, figure5 as f5, figure6 as f6, figure8 as f8, figure10 as f10, ruleweight as rw
@@ -22,7 +23,14 @@ def read(p):
 def style():
  plt.rcParams.update({'font.family':'DejaVu Sans','font.size':7,'axes.labelsize':7,'xtick.labelsize':6,'ytick.labelsize':6,'legend.fontsize':6,'pdf.fonttype':42,'svg.fonttype':'none','axes.linewidth':.5,'savefig.bbox':None})
 def save(fig,out,n):
- fig.savefig(out/f'main_fig{n}.pdf');fig.savefig(out/f'main_fig{n}.png',dpi=140);plt.close(fig)
+ fig.savefig(out/f'main_fig{n}.pdf');plt.close(fig)
+
+def preview_pdf(path):
+ # Run after all vector schematics and labels have been merged into the PDF.
+ with pdfium.PdfDocument(str(path)) as doc:
+  page=doc[0];bitmap=page.render(scale=140/72)
+  bitmap.to_pil().save(path.with_suffix('.png'))
+  bitmap.close();page.close()
 def label(ax,s):
  pos=ax.get_position();x=max(-.14,(.02-pos.x0)/pos.width)
  ax.text(x,1.04,s,transform=ax.transAxes,fontweight='bold',fontsize=12)
@@ -34,9 +42,10 @@ def violin(ax,a,colors,labels,aligned=False,log=False):
   x=np.arange(a.shape[2])+(0 if aligned else (k-(len(colors)-1)/2)*.14)
   vs=[a[:,k,j][np.isfinite(a[:,k,j])] for j in range(a.shape[2])]
   vs=[v if np.ptp(v)>1e-12 else np.r_[v,v[0]+1e-7] for v in vs]
-  p=ax.violinplot(vs,positions=x,widths=.58 if aligned else .14,showextrema=False,showmedians=True)
+  p=ax.violinplot(vs,positions=x,widths=.58 if aligned else .14,showextrema=False,showmeans=True,showmedians=True)
   for b in p['bodies']:b.set_facecolor(color);b.set_edgecolor(color);b.set_alpha(.32 if aligned else .65)
-  p['cmedians'].set_color(color);p['cmedians'].set_linewidth(.8)
+  p['cmeans'].set_color('black');p['cmeans'].set_linewidth(.8)
+  p['cmedians'].set_color('red');p['cmedians'].set_linewidth(.8)
   if aligned:ax.plot(x,np.nanmedian(a[:,k,:],axis=0),'-o',color=color,lw=.8,ms=2)
  ax.set_xticks(range(len(labels)),labels,rotation=45 if len(labels)>6 else 0)
  ax.spines[['top','right']].set_visible(False)
@@ -62,7 +71,7 @@ def overlay_labels(file,labels):
 def recompute_ruleweight(metrics):
  for m in metrics:
   for k,v in list(m.items()):
-   if isinstance(v,list):m[k]=np.asarray(v,float)
+   if isinstance(v,list) and k!='pairing':m[k]=np.asarray(v,float)
   n=m['num_runs'];ret=m['retained_runs'];diag=np.diagonal(ret,axis1=1,axis2=2)
   margins=np.stack([ret[:,i,i]-np.nanmean(np.delete(ret[:,:,i],i,axis=1),axis=1) for i in range(5)],axis=1)
   for prefix,a in [('retained',ret),('diag_retained',diag),('weight_ratio',m['weight_ratio_runs']),('baseline_acc',m['baseline_acc_runs']),('specialization_margin',margins)]:
@@ -148,18 +157,30 @@ def render(data,out):
   f6.draw_heatmap(fig,ax,m*(1e4 if i==1 else 1),'','',['Accuracy change','Weight-fraction change (×10⁻⁴)','Specialization margin'][i],'{:+.2f}' if i<2 else '{:.2f}','RdBu_r' if i<2 else 'viridis',i<2)
   fig.axes[-1].remove();ax.set_aspect('auto');ax.set_position([.09+i*.31,.64,.20,.27]);cb=fig.add_axes([.09+i*.31,.52,.20,.015]);fig.colorbar(ax.images[0],cax=cb,orientation='horizontal');cb.set_xlabel(['Accuracy change','Weight-fraction change (×10⁻⁴)','Specialization margin'][i],fontsize=6);ax.set_xlabel('Evaluated rule');ax.set_ylabel('Upweighted rule');label(ax,'abc'[i])
  a=fig.add_axes([.10,.12,.34,.25]);b=fig.add_axes([.63,.12,.33,.25]);x,y,xe,ye=f6.matched_target_statistics(summary)
- for i in range(5):a.errorbar(y[i]*1e4,x[i],xerr=ye[i]*1e4,yerr=xe[i],fmt='o',color=RULE[i],ms=4,capsize=2)
- xx=np.linspace(min(y)*1e4,max(y)*1e4,50);a.plot(xx,np.polyval(np.polyfit(y*1e4,x,1),xx),'--',c='.4');a.text(.02,.95,f'Pearson r = {np.corrcoef(x,y)[0,1]:.2f}',va='top',transform=a.transAxes)
+ for i in range(5):a.errorbar(x[i],y[i]*1e4,xerr=xe[i],yerr=ye[i]*1e4,fmt='o',color=RULE[i],ms=4,capsize=2)
+ xx=np.linspace(min(x),max(x),50);a.plot(xx,np.polyval(np.polyfit(x,y*1e4,1),xx),'--',c='.4');a.text(.02,.95,f'Pearson r = {np.corrcoef(x,y)[0,1]:.2f}',va='top',transform=a.transAxes)
  trials=f6.paired_trial_rows(metrics_rw);f6.draw_trial_scatter(b,trials)
  b.set_title('',loc='left')
  for t in list(b.texts):
   if t.get_text()=='e':t.remove()
- for ax,l in [(a,'d'),(b,'e')]:label(ax,l);ax.set_xlabel('Retained-weight change (×10⁻⁴)');ax.set_ylabel('Accuracy change')
+ for ax,l in [(a,'d'),(b,'e')]:label(ax,l)
+ a.set_xlabel('Accuracy change');a.set_ylabel('Retained-weight\nchange (×10⁻⁴)')
+ b.set_xlabel('Retained-weight change (×10⁻⁴)');b.set_ylabel('Accuracy change')
+ handles,names=b.get_legend_handles_labels()
+ if b.get_legend():b.get_legend().remove()
+ fig.legend(handles,names,loc='lower center',bbox_to_anchor=(.795,.005),ncol=3,frameon=False,fontsize=5.5,columnspacing=.7,handletextpad=.3)
  save(fig,out,5)
  # Recomposition graph is preserved as an editable plotting function; quantitative panels are recomputed.
  import manuscript_figures as mf
  oldread=mf.read;oldload=f10.load_cost_summary;oldexport=mf.export
  cs=cost.aggregate_costs(*[json.loads((data/'cost'/n).read_text()) for n in ['multitask_runs.json','extraction_runs.json','separate_runs.json']])
+ # Reused training and new extraction timings are not one measured execution.
+ for row in [cs['mean'],*cs['per_repeat']]:
+  for key in list(row):
+   if 'plus_extraction_seconds' in key or 'wall_time' in key:row.pop(key)
+ for key in list(cs):
+  if 'plus_extraction_seconds' in key or 'wall_time' in key:cs.pop(key)
+ cs['timing_note']='Training and extraction times are separate records; no combined wall time or speedup is inferred.'
  mf.read=lambda p:read(data/'recomposition.csv');f10.load_cost_summary=lambda p:cs
  def ex(fig,stem,dest):
   if stem=='main_fig6':
@@ -174,6 +195,7 @@ def render(data,out):
  mf.export=ex
  try:mf.figure6(out)
  finally:mf.read=oldread;f10.load_cost_summary=oldload;mf.export=oldexport
+ for path in [*(out/f'main_fig{i}.pdf' for i in range(1,7)),out/'supp_training_cost.pdf']:preview_pdf(path)
  result={'selected_counts':{k:len(v) for k,v in sel.items()},'fig2c_matrix':matrix.tolist(),'fig3_bar_statistics':stats,'fig5_matrices':[v.tolist() for v in matrices],'fig5_pair_count':len(trials),'fig5_mean_r':float(np.corrcoef(x,y)[0,1]),'fig5_trial_r':float(np.corrcoef([r['accuracy_delta'] for r in trials],[r['weight_ratio_delta'] for r in trials])[0,1]),'cost':cs}
  (out/'statistics.json').write_text(json.dumps(result,indent=2,default=lambda x:x.tolist() if isinstance(x,np.ndarray) else str(x)))
  return result

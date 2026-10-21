@@ -129,25 +129,26 @@ def rule_label(rule_id: int) -> str:
 
 
 def extraction_proxy(combo_result: dict[str, Any], test_samples: int, perturbation_batch_size: int) -> dict[str, float]:
-    layers = combo_result.get("layers", [])
-    layer_widths = [np.asarray(layer.get("important_mask", [])).shape[1] for layer in layers]
-    total_neurons = int(np.sum(layer_widths)) if layer_widths else 0
-    batched_forward_calls = int(np.sum([int(np.ceil(width / max(float(perturbation_batch_size), 1.0))) for width in layer_widths]))
+    # Logical perturbations and batched calls are different units. Keep both explicit.
+    counts = [len(block['candidate_flat_indices']) for block in combo_result['blocks']]
+    calls = sum(int(np.ceil(n / max(int(perturbation_batch_size), 1))) for n in counts)
     return {
-        "extraction_total_hidden_neurons": float(total_neurons),
-        "extraction_batched_forward_calls": float(batched_forward_calls),
-        "extraction_sample_forward_proxy": float(batched_forward_calls * int(test_samples)),
+        'extraction_total_scalar_weights': int(sum(counts)),
+        'extraction_batched_forward_calls': int(calls),
+        'extraction_sample_forward_evaluations': int(sum(counts) * test_samples),
+        # Existing manuscript heuristic: batched calls times analysis samples, NOT FLOPs.
+        'extraction_sample_forward_proxy': int(calls * test_samples),
     }
 
 
-def minimal_neuron_extraction(
+def minimal_weight_extraction(
     run_dir: Path,
     output_dir: Path,
     args: argparse.Namespace,
 ) -> tuple[dict[str, Any], float]:
     loaded = ana.load_run_npz(run_dir)
     start = time.perf_counter()
-    combo_subnet = ana.combo_subnetwork_analysis(
+    combo_subnet = ana.weight_combo_subnetwork_analysis(
         loaded["state"],
         loaded["x_test"],
         loaded["y_test"],
@@ -156,14 +157,24 @@ def minimal_neuron_extraction(
         mask_method=args.mask_method,
         importance_min_score=args.importance_min_score,
         importance_mask_mode="score_ratio",
-        importance_score_ratio_threshold=args.importance_neuron_threshold,
+        importance_score_ratio_threshold=1e-6,
+        token_extraction_method=args.token_extraction_method,
+        token_extraction_fraction=args.token_extraction_fraction,
+        max_elements_per_block=None,
+        max_combo_size=1,
         importance_output_eps=args.importance_output_eps,
         perturbation_batch_size=args.perturbation_batch_size,
         analysis_device=args.analysis_device,
     )
     seconds = time.perf_counter() - start
     result = {
-        "combo_subnetwork": combo_subnet,
+        "weight_combo_subnetwork": combo_subnet,
+        "subnet_target": "weight",
+        "protocol": {"target":"weight", "method":args.mask_method, "tau":args.token_extraction_fraction,
+                     "extraction_method":args.token_extraction_method, "min_score":args.importance_min_score,
+                     "output_eps":args.importance_output_eps, "candidate_cap":None},
+        "analysis_samples": len(loaded["x_test"]),
+        "perturbation_batch_size": args.perturbation_batch_size,
         "extraction_seconds": seconds,
         **extraction_proxy(combo_subnet, test_samples=len(loaded["x_test"]), perturbation_batch_size=args.perturbation_batch_size),
     }
@@ -280,12 +291,12 @@ def run_experiment(args: argparse.Namespace) -> tuple[Path, list[dict[str, Any]]
 
         if not args.skip_extraction:
             print("  extracting functional-token subnetworks", flush=True)
-            extraction_result, extraction_seconds = minimal_neuron_extraction(
+            extraction_result, extraction_seconds = minimal_weight_extraction(
                 multitask_run_dir,
                 analysis_root / "multitask" / "run_{:03d}".format(repeat_idx),
                 args,
             )
-            retained_diag = diagonal_token_retained(extraction_result["combo_subnetwork"], len(RULE_INDICES))
+            retained_diag = diagonal_token_retained(extraction_result["weight_combo_subnetwork"], len(RULE_INDICES))
             extraction_rows.append(
                 {
                     "run_dir": str(multitask_run_dir),
@@ -296,7 +307,9 @@ def run_experiment(args: argparse.Namespace) -> tuple[Path, list[dict[str, Any]]
                     "token_retained_relative_accuracy_by_rule": {
                         rule_label(rule_id): float(value) for rule_id, value in zip(RULE_INDICES, retained_diag)
                     },
-                    "extraction_total_hidden_neurons": extraction_result["extraction_total_hidden_neurons"],
+                    "protocol": extraction_result["protocol"],
+                    "extraction_total_scalar_weights": extraction_result["extraction_total_scalar_weights"],
+                    "extraction_sample_forward_evaluations": extraction_result["extraction_sample_forward_evaluations"],
                     "extraction_batched_forward_calls": extraction_result["extraction_batched_forward_calls"],
                     "extraction_sample_forward_proxy": extraction_result["extraction_sample_forward_proxy"],
                 }
@@ -359,7 +372,11 @@ def aggregate_costs(
         row["separate_vs_multitask_plus_extraction_wall_ratio"] = row["separate_train_seconds"] / max(row["multitask_plus_extraction_seconds"], 1e-12)
         per_repeat.append(row)
 
+    protocols = [r.get("protocol") for r in extraction_rows]
+    if protocols and (any(p is None for p in protocols) or any(p != protocols[0] for p in protocols)):
+        raise ValueError("Missing or mixed extraction protocol metadata")
     summary = {
+        "protocol": protocols[0] if protocols else {"target":"none"},
         "repeat_count": len(per_repeat),
         "per_repeat": per_repeat,
         "mean": {},
@@ -462,9 +479,9 @@ def write_article_note(run_root: Path, summary: dict[str, Any], figure_paths: li
         "",
         "This experiment complements `article/modularity_new.tex` subsection `Compositional Reuse of Functional Tokens`.",
         "",
-        "It compares one shared five-rule multitask MLP followed by neuron-token extraction against training five independent single-rule MLPs with the same hidden architecture.",
+        "It compares one shared five-rule multitask MLP followed by scalar-weight-token extraction against training five independent single-rule MLPs with the same hidden architecture.",
         "",
-        "Cost proxy is `trainable parameter count x train samples x epochs`. The extraction proxy counts test-sample forward evaluations used by batched neuron ablation.",
+        "Cost proxy is `trainable parameter count x train samples x epochs`. The extraction heuristic counts scalar-weight perturbation batches times analysis samples; individual perturbed-sample evaluations are reported separately. It is not a FLOP count and is added to a differently scaled training proxy.",
         "",
         "Mean ratios over repeats:",
         "- separate / multitask train proxy: {:.3f}".format(mean.get("separate_vs_multitask_train_proxy_ratio", float("nan"))),
@@ -481,7 +498,7 @@ def write_article_note(run_root: Path, summary: dict[str, Any], figure_paths: li
 def main() -> None:
     parser = argparse.ArgumentParser(description="Compare multitask+subnet extraction cost with five separately trained task models.")
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
-    parser.add_argument("--run-name", default="multitask_vs_separate_cost")
+    parser.add_argument("--run-name", default="multitask_vs_separate_cost_weight")
     parser.add_argument("--repeat", type=int, default=3)
     parser.add_argument("--seed", type=int, default=830)
     parser.add_argument("--num-samples", type=int, default=2000)
@@ -502,7 +519,8 @@ def main() -> None:
     parser.add_argument("--log-every", type=int, default=0)
     parser.add_argument("--skip-extraction", action="store_true")
     parser.add_argument("--mask-method", choices=["ablation", "taylor"], default="ablation")
-    parser.add_argument("--importance-neuron-threshold", type=float, default=1e-5)
+    parser.add_argument("--token-extraction-method", choices=ana.TOKEN_EXTRACTION_METHOD_CHOICES, default="score_quantile")
+    parser.add_argument("--token-extraction-fraction", type=float, default=0.75)
     parser.add_argument("--importance-min-score", type=float, default=1e-9)
     parser.add_argument("--importance-output-eps", type=float, default=1e-8)
     parser.add_argument("--perturbation-batch-size", type=int, default=64)

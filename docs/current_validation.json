@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-21T10:47:55.190260",
+  "scope": "Current delivery audit fixes; no full 923-run retraining or clean dependency installation",
+  "from_results": "PASS: all six figures and S1 rendered from supplied observations",
+  "smoke": "PASS: six reduced 2-epoch/40-sample training-analysis cases and scalar-weight cost test",
+  "actual_auxiliary_records": {
+    "status": "PASS",
+    "models_checked": 18,
+    "scope": "Original saved auxiliary training configuration, model tensor shapes and test-set size; no defaults substituted"
+  },
+  "regression": "PASS: changed input selection, honest fresh status, missing pairing, raw-score quantiles/zero filtering/union masks",
+  "isolated_copy": {
+    "scope": "Copied source, Python file-open audit hook denying original project paths; existing environment, no new training",
+    "results": [
+      {
+        "test": "render",
+        "exit_code": 0
+      },
+      {
+        "test": "regression",
+        "exit_code": 0
+      }
+    ]
+  },
+  "render": "PASS: black means/red medians; final vector PDF precedes PNG; Fig5d axes/errors restored; Fig5e legend outside",
+  "tex": {
+    "source_compile": {
+      "errors": [],
+      "pdf_bytes": 8169237
+    },
+    "zip_compile": {
+      "errors": [],
+      "pdf_bytes": 8169237
+    }
+  },
+  "document_checks": {
+    "baseline": {
+      "source_paragraphs": 214,
+      "accepted_paragraphs": 214,
+      "visible_text_and_math_leaves_identical": true,
+      "native_math_semantics_identical": true,
+      "source_revision_insertions": 167,
+      "source_revision_deletions": 204
+    },
+    "highlight": {
+      "eligible_body_paragraphs": 107,
+      "unchanged_paragraphs_without_highlights": 43,
+      "character_level_errors": [],
+      "math_run_extra_characters": 1,
+      "note": "数学使用原生数学run为最小高亮单元，可能含同run相邻符号；删除内容无法在接受修订后的净稿中涂黄。",
+      "excluded_scope_errors": []
+    },
+    "tex_to_word": {
+      "text_differences": [],
+      "native_math_semantics_equal": true,
+      "tex_math_count": 195,
+      "word_math_count": 195
+    },
+    "refs_missing": [],
+    "labels_duplicate": [],
+    "figures": {
+      "newfig/main_fig1.pdf": true,
+      "newfig/main_fig2.pdf": true,
+      "newfig/main_fig3.pdf": true,
+      "newfig/main_fig4.pdf": true,
+      "newfig/main_fig5.pdf": true,
+      "newfig/main_fig6.pdf": true,
+      "figs/supp_training_cost.pdf": true
+    },
+    "compile_errors": {
+      "modularity": [],
+      "sup": []
+    },
+    "stale_strings": {
+      "EXTRACTION_": [],
+      "0.82": [
+        "modularity.tex"
+      ],
+      "0.68": [],
+      "500-unit": [],
+      "64 by default": [],
+      "score_ratio based": [],
+      "neuron-based extraction": []
+    },
+    "word_package_changes": [
+      "word/document.xml"
+    ],
+    "unchanged_word_figures_1_4": true,
+    "unchanged_figures_1_4": true,
+    "comment379_discussion": true,
+    "math_only_alignment_issues": []
+  },
+  "visual": {
+    "sup": {
+      "pages": 17,
+      "unresolved": [],
+      "near_blank": [],
+      "added_method_pages": [
+        16
+      ]
+    },
+    "word": {
+      "pages": 24,
+      "unresolved": [],
+      "near_blank": [],
+      "added_method_pages": []
+    },
+    "preprint": {
+      "pages": 36,
+      "unresolved": [],
+      "near_blank": [],
+      "added_method_pages": [
+        35
+      ]
+    },
+    "inspection": "All Word and preprint contact sheets and Sup methods/S1 pages visually inspected; no new clipping, missing figures or unresolved references found."
+  },
+  "limitations": [
+    "Full fresh-run scientific conclusions are NOT_CHECKED; fresh mode returns PARTIAL pending scientific review.",
+    "Python file-open hook is not an OS sandbox. Existing modularity_env was used."
+  ],
+  "package": {
+    "file_count": 12,
+    "zip_sha256": "cc0cc44640de546aa0503a98e955fa80eafedbbb4dc8082f1a61c518ea28f9a1",
+    "zip_bytes": 5516475,
+    "pages": 36,
+    "all_pages_match_visually_inspected_version": true
+  },
+  "final_render_checks": {
+    "smoke_masks": [
+      {
+        "record": "smoke/analysis/mlp300_binary_repeat30/run_000/analysis.json",
+        "blocks": 4
+      },
+      {
+        "record": "smoke/analysis/mlp300_binary_ruleweight_control_w1_l5_gamma1_repeat30/run_000/analysis.json",
+        "blocks": 4
+      },
+      {
+        "record": "smoke/analysis/mlp300_binary_ruleweight_rule0_w5_l5_gamma1_repeat30/run_000/analysis.json",
+        "blocks": 4
+      },
+      {
+        "record": "smoke/analysis/mlp300_pattern_repeat30/run_000/analysis.json",
+        "blocks": 4
+      },
+      {
+        "record": "smoke/analysis/mlp_mnist_arithmetic_repeat30/run_000/analysis.json",
+        "blocks": 4
+      },
+      {
+        "record": "smoke/analysis/transformer_binary_repeat30/run_000/analysis.json",
+        "blocks": 14
+      }
+    ],
+    "mean_black_median_red": true,
+    "merged_pdf_preview_pixel_identical": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  }
+}

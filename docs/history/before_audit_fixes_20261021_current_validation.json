@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-21T09:56:20.600770",
+  "scope": "Current local working tree; existing modularity_env; not a fresh dependency install or full 923-run retraining",
+  "isolation": {
+    "status": "PASS",
+    "mechanism": "Python audit hook, not an OS sandbox",
+    "temporary_repository": "/tmp/modularity-isolation-81almwsv/repository",
+    "denied_roots": [
+      "/home/sbw/modularity",
+      "/mnt/c/baidunetdiskdownload/modularity/modularity.tex",
+      "/mnt/c/baidunetdiskdownload/modularity/modularity-reproducibility"
+    ],
+    "commands": [
+      {
+        "command": [
+          "reproduce.py",
+          "--from-results",
+          "--skip-tex",
+          "--output",
+          "/tmp/modularity-isolation-81almwsv/plots"
+        ],
+        "status": "PASS"
+      },
+      {
+        "command": [
+          "reproduce.py",
+          "--smoke",
+          "--output",
+          "/tmp/modularity-isolation-81almwsv/smoke"
+        ],
+        "status": "PASS"
+      },
+      {
+        "command": [
+          "tests/verify_published.py",
+          "/tmp/modularity-isolation-81almwsv/checks"
+        ],
+        "status": "PASS"
+      }
+    ],
+    "tex_in_isolation": false
+  },
+  "published": {
+    "selected_runs": {
+      "binary": 30,
+      "pattern": 30,
+      "mnist": 30,
+      "taylor_mlp": 30,
+      "transformer": 23
+    },
+    "single_rule_rows": 4500,
+    "time_rows": 1800,
+    "geometry_rows": 2100,
+    "correlation_hist_rows": 4800,
+    "recomposition_rows": 360,
+    "nip_unique_run_layers": 540,
+    "nip_legacy_threshold_duplicates_identical": true,
+    "fig5_matrix_max_abs_differences": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fig5_paired_trials": 150,
+    "fig5_width": 300,
+    "fig5_runs": 180,
+    "fig5_pooled_r": 0.7835066365387711,
+    "cost_retained_relative_accuracy": 0.9527236425015575,
+    "cost_scalar_weights": 194700,
+    "status": "PASS"
+  },
+  "smoke": {
+    "status": "PASS",
+    "full_training": false,
+    "checks": [
+      {
+        "model": "mlp300_binary_repeat30",
+        "epochs": 2,
+        "samples": 40,
+        "analysis": "ablation",
+        "retained_shape": [
+          5,
+          31
+        ],
+        "status": "PASS"
+      },
+      {
+        "model": "mlp300_pattern_repeat30",
+        "epochs": 2,
+        "samples": 40,
+        "analysis": "ablation",
+        "retained_shape": [
+          5,
+          31
+        ],
+        "status": "PASS"
+      },
+      {
+        "model": "mlp_mnist_arithmetic_repeat30",
+        "epochs": 2,
+        "samples": 40,
+        "analysis": "ablation",
+        "retained_shape": [
+          5,
+          31
+        ],
+        "status": "PASS"
+      },
+      {
+        "model": "transformer_binary_repeat30",
+        "epochs": 2,
+        "samples": 40,
+        "analysis": "taylor",
+        "retained_shape": [
+          5,
+          31
+        ],
+        "status": "PASS"
+      },
+      {
+        "model": "mlp300_binary_ruleweight_control_w1_l5_gamma1_repeat30",
+        "epochs": 2,
+        "samples": 40,
+        "analysis": "ablation",
+        "retained_shape": [
+          5,
+          31
+        ],
+        "status": "PASS"
+      },
+      {
+        "model": "mlp300_binary_ruleweight_rule0_w5_l5_gamma1_repeat30",
+        "epochs": 2,
+        "samples": 40,
+        "analysis": "ablation",
+        "retained_shape": [
+          5,
+          31
+        ],
+        "status": "PASS"
+      }
+    ]
+  },
+  "source_manifest_sha256": "2af1558941174885f147e702de15c5df57348bf3807bc636f9a0efcf0706f0a6",
+  "entrypoint_sha256": {
+    "scripts/pipeline.py": "8479ebf4309bc6b1deb9706bb75b6f47040b1f55cc3b35bf1f3948e1945dd158",
+    "scripts/render.py": "34d61ec956f14e1815fe0fe78016f7cf422f85fe67abffe45795672cfe99e14e",
+    "tests/verify_published.py": "39f66d89e938632b53ab1ea1c20bd5668291f6184b85d96e9c4557d24f1d6eea",
+    "analysis.py": "4f0a7531be137853854d1ce4eb29259cf78b21e105c0088626a325e4bf4fec12"
+  },
+  "tex": "Main and supplement compiled separately; combined upload ZIP unpacked and compiled separately. Not compiled inside Python-hook isolation.",
+  "remote": "Not pushed or certified in this task."
+}

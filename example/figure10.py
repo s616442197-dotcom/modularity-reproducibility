@@ -26,7 +26,7 @@ DEFAULT_INPUT = ROOT / "example/results/simulation/lasso_l_gamma_sweep"
 DEFAULT_ANALYSIS_ROOT = ROOT / "example/results/score_ratio_analysis"
 DEFAULT_OUTPUT_ROOT = ROOT / "example/results/figure10"
 DEFAULT_CACHE_ROOT = DEFAULT_OUTPUT_ROOT / "cache"
-DEFAULT_COST_SUMMARY = ROOT / "example/composite/results/multitask_vs_separate_cost/summary.json"
+DEFAULT_COST_SUMMARY = ROOT / "example/composite/results/multitask_vs_separate_cost_weight/summary.json"
 EXPORT_EXTENSIONS = ("png", "pdf", "svg")
 
 ADD_RULE = 0
@@ -195,6 +195,8 @@ def compute_minimal_token_analysis(run_dir: Path, output_dir: Path, args: argpar
         perturbation_batch_size=args.perturbation_batch_size,
         analysis_device=args.analysis_device,
         taylor_probes=args.taylor_probes,
+        token_extraction_method=args.token_extraction_method,
+        token_extraction_fraction=args.token_extraction_fraction,
     )
     result = {
         "combo_mask_method": args.mask_method,
@@ -205,6 +207,8 @@ def compute_minimal_token_analysis(run_dir: Path, output_dir: Path, args: argpar
         "importance_output_eps": args.importance_output_eps,
         "taylor_probes": args.taylor_probes,
         "subnet_target": "weight",
+        "token_extraction_method": args.token_extraction_method,
+        "token_extraction_fraction": args.token_extraction_fraction,
         "weight_combo_subnetwork": weight_combo,
         "weight_combo_retained_accuracy": weight_combo.get("network_retained_accuracy", []),
     }
@@ -230,7 +234,12 @@ def load_or_compute_analysis(
             path = candidate / "analysis.json"
             if path.is_file():
                 result = json.loads(path.read_text(encoding="utf-8"))
-                if analysis_has_weight_subnetwork(result):
+                if ana.weight_combo_protocol_matches(result.get("weight_combo_subnetwork", {}),
+                        mask_method=args.mask_method, min_score=args.importance_min_score,
+                        output_eps=args.importance_output_eps,
+                        extraction_method=args.token_extraction_method, fraction=args.token_extraction_fraction,
+                        max_elements_per_block=args.max_weight_elements_per_block,
+                        state=ana.load_run_npz(run_dir)["state"]):
                     return result
 
     return compute_minimal_token_analysis(run_dir, cache_candidates[-1], args)
@@ -284,7 +293,9 @@ def retained_weight_fraction(state: dict[str, np.ndarray], keep_by_key: dict[str
     for spec in ana.weight_block_specs(state):
         key = str(spec["key"])
         total += int(np.prod(np.asarray(spec["shape"], dtype=int)))
-        retained += len(keep_by_key.get(key, []))
+        # Eq. E_w uses nonzero weights in the directly extracted rule-5 reference.
+        indices = np.asarray(keep_by_key.get(key, []), dtype=int)
+        retained += int(np.count_nonzero(np.asarray(state[key]).reshape(-1)[indices]))
     return retained / max(float(total), 1.0)
 
 
@@ -469,6 +480,11 @@ def load_cost_summary(path: Path, enabled: bool = True) -> dict[str, Any] | None
         print("Cost summary not found; skipping Fig. 10d: {}".format(path), flush=True)
         return None
     data = json.loads(path.read_text(encoding="utf-8"))
+    protocol = data.get("protocol", {})
+    expected = {"target":"weight", "method":"ablation", "extraction_method":"score_quantile",
+                "tau":0.75, "min_score":1e-9, "output_eps":1e-8, "candidate_cap":None}
+    if any(k not in protocol or protocol[k] != v for k,v in expected.items()):
+        raise ValueError("Cost summary does not document the common weight protocol: {}".format(path))
     data["_source_path"] = str(path)
     return data
 
@@ -690,6 +706,8 @@ def main() -> None:
     parser.add_argument("--perturbation-batch-size", type=int, default=64)
     parser.add_argument("--analysis-device", default="auto")
     parser.add_argument("--taylor-probes", type=int, default=4)
+    parser.add_argument("--token-extraction-method", choices=ana.TOKEN_EXTRACTION_METHOD_CHOICES, default="score_quantile")
+    parser.add_argument("--token-extraction-fraction", type=float, default=0.75)
     args = parser.parse_args()
 
     configure_style()

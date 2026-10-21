@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import json
 import shutil
+import hashlib
 import sys
 from pathlib import Path
 
@@ -25,9 +26,10 @@ from model import TorchModularMLP
 from task import BinaryArithmeticTask
 
 
-# Same core configuration as example/lasso_l_example.py.
+# Rule-loss-weighting experiment: three 300-unit hidden layers.
+# The new directory separates this protocol from historical 500-unit results.
 EXPERIMENT_PREFIX = 'mlp300_binary_ruleweight'
-OUTPUT_ROOT = ROOT / 'example/results/ruleweight'
+OUTPUT_ROOT = ROOT / 'example/results/fig56_300_protocol_20261020/ruleweight'
 SIMULATION_ROOT = OUTPUT_ROOT / 'simulation'
 ANALYSIS_ROOT = OUTPUT_ROOT / 'analysis'
 FIGURE_ROOT = OUTPUT_ROOT / 'figures'
@@ -49,7 +51,7 @@ LOG_EVERY = 100
 SNAPSHOT_EVERY = 1000
 DEVICE = 'auto'
 
-MLP_HIDDEN_DIM = 500
+MLP_HIDDEN_DIM = 300
 MLP_NUM_MODULES = 3
 
 UPWEIGHT = 5.0
@@ -67,10 +69,10 @@ ANALYSIS_METHOD = 'ablation'
 ANALYSIS_SUBNET_TARGET = 'weight'
 IMPORTANCE_NEURON_THRESHOLD = 1e-4
 IMPORTANCE_MIN_SCORE = 1e-9
-PERTURBATION_BATCH_SIZE = 32
+PERTURBATION_BATCH_SIZE = 64
 CORRELATION_SAMPLE_SIZE = 5000
-TOKEN_EXTRACTION_METHOD = ana.DEFAULT_TOKEN_EXTRACTION_METHOD
-TOKEN_EXTRACTION_FRACTION = ana.DEFAULT_TOKEN_EXTRACTION_FRACTION
+TOKEN_EXTRACTION_METHOD = 'score_quantile'
+TOKEN_EXTRACTION_FRACTION = 0.75
 
 
 def load_json(path: Path):
@@ -166,11 +168,33 @@ def single_rule_combo_columns(combo_labels: list[str]) -> list[int]:
     return columns
 
 
+def saved_run_identity(run_dir: Path, upweighted_rule: int | None) -> dict:
+    config = load_json(run_dir / 'config.json')
+    expected = {'epochs': EPOCHS, 'batch_size': BATCH_SIZE, 'lr': LR,
+                'optimizer_name': OPTIMIZER_NAME, 'weight_decay': WEIGHT_DECAY}
+    for key, value in expected.items():
+        if config.get(key) != value:
+            raise ValueError('Saved training config mismatch: {} {}'.format(run_dir, key))
+    loss = config.get('loss_config', {})
+    for key, value in {'l1': L1, 'gamma': GAMMA, 'regularization_epsilon': REGULARIZATION_EPSILON,
+                       'rule_weights': rule_weights_for_condition(upweighted_rule)}.items():
+        if loss.get(key) != value:
+            raise ValueError('Saved loss config mismatch: {} {}'.format(run_dir, key))
+    loaded = ana.load_run_npz(run_dir)
+    shapes = [tuple(loaded['state'][spec['key']].shape) for spec in ana.weight_block_specs(loaded['state'])]
+    expected_shapes = [(MLP_HIDDEN_DIM, 2*OUTPUT_BITS)] + [(MLP_HIDDEN_DIM, MLP_HIDDEN_DIM)]*(MLP_NUM_MODULES-1) + [(len(RULE_INDICES)*OUTPUT_BITS, MLP_HIDDEN_DIM)]
+    if shapes != expected_shapes or list(loaded['rule_indices']) != RULE_INDICES:
+        raise ValueError('Saved model architecture/task mismatch: {}'.format(run_dir))
+    return {'run': run_dir.name, 'seed': config['seed'],
+            'input_label_sha256': hashlib.sha256(loaded['x_test'].tobytes()+loaded['y_test'].tobytes()).hexdigest()}
+
+
 def extract_condition_metrics(analysis_dir: Path, upweighted_rule: int | None) -> dict:
     run_paths = sorted(analysis_dir.glob('run_*/analysis.json'))
     if not run_paths:
         raise FileNotFoundError('No analysis.json files found under {}'.format(analysis_dir))
 
+    pairing = []
     retained_runs = []
     neuron_ratio_runs = []
     weight_ratio_runs = []
@@ -180,32 +204,26 @@ def extract_condition_metrics(analysis_dir: Path, upweighted_rule: int | None) -
     combo_labels = None
 
     for path in run_paths:
+        run_dir = analysis_dir.parent.parent / 'simulation' / analysis_dir.name / path.parent.name
+        pairing.append(saved_run_identity(run_dir, upweighted_rule))
         result = load_json(path)
         weight_combo = result.get('weight_combo_subnetwork', {})
-        use_weight = bool(weight_combo.get('blocks'))
-        if use_weight:
-            combo = weight_combo
-            if combo_labels is None:
-                combo_labels = list(combo['combo_labels'])
-            columns = single_rule_combo_columns(combo_labels)
-            retained_source = result.get('weight_combo_retained_accuracy', combo.get('network_retained_accuracy', []))
-            retained = np.asarray(retained_source, dtype=float)[:, columns]
-            weight_all = ana._weight_subnet_retained_weight_ratios([combo])
-            weight_ratios = weight_all[0, columns] if weight_all.size else np.full(len(columns), np.nan, dtype=float)
-            neuron_ratios = np.full(len(columns), np.nan, dtype=float)
-            neuron_counts = np.full(len(columns), np.nan, dtype=float)
-            baseline_acc = np.asarray(combo['baseline_accuracy'], dtype=float)
-        else:
-            combo = result['combo_subnetwork']
-            resources = result['neuron_subnet_resource_usage']
-            if combo_labels is None:
-                combo_labels = list(combo['combo_labels'])
-            columns = single_rule_combo_columns(combo_labels)
-            retained = np.asarray(result['combo_network_retained_accuracy'], dtype=float)[:, columns]
-            neuron_ratios = np.asarray(resources['retained_neuron_ratios'], dtype=float)[columns]
-            weight_ratios = np.asarray(resources['retained_weight_ratios'], dtype=float)[columns]
-            neuron_counts = np.asarray(resources['retained_neuron_counts'], dtype=float)[columns]
-            baseline_acc = np.asarray(combo['baseline_accuracy'], dtype=float)
+        if not ana.weight_combo_protocol_matches(weight_combo, mask_method=ANALYSIS_METHOD,
+                min_score=IMPORTANCE_MIN_SCORE, extraction_method=TOKEN_EXTRACTION_METHOD,
+                fraction=TOKEN_EXTRACTION_FRACTION, output_eps=1e-8,
+                max_elements_per_block=None, state=ana.load_run_npz(run_dir)['state']):
+            raise ValueError('Incompatible weight-analysis cache: {}'.format(path))
+        combo = weight_combo
+        if combo_labels is None:
+            combo_labels = list(combo['combo_labels'])
+        columns = single_rule_combo_columns(combo_labels)
+        retained_source = result.get('weight_combo_retained_accuracy', combo.get('network_retained_accuracy', []))
+        retained = np.asarray(retained_source, dtype=float)[:, columns]
+        weight_all = ana._weight_subnet_retained_weight_ratios([combo])
+        weight_ratios = weight_all[0, columns] if weight_all.size else np.full(len(columns), np.nan, dtype=float)
+        neuron_ratios = np.full(len(columns), np.nan, dtype=float)
+        neuron_counts = np.full(len(columns), np.nan, dtype=float)
+        baseline_acc = np.asarray(combo['baseline_accuracy'], dtype=float)
 
         margins = []
         for rule_pos in range(len(RULE_INDICES)):
@@ -252,6 +270,7 @@ def extract_condition_metrics(analysis_dir: Path, upweighted_rule: int | None) -
         'condition': condition_tag(upweighted_rule),
         'upweighted_rule': upweighted_rule,
         'analysis_dir': str(analysis_dir),
+        'pairing': pairing,
         'num_runs': len(run_paths),
         'retained_mean': finite_nanmean(retained_runs, axis=0),
         'retained_sem': finite_nanstd(retained_runs, axis=0) / np.sqrt(num_runs),
