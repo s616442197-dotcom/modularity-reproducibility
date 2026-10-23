@@ -15,3 +15,6 @@ outputs/
 *.fdb_latexmk
 *.toc
 .DS_Store
+
+# Publication files are maintained outside the code/data repository.
+/manuscript/

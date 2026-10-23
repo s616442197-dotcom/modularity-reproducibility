@@ -21,8 +21,8 @@ def audit(event,args):
    raise PermissionError('Isolation check denied source access: '+path)
 sys.addaudithook(audit)
 ''')
- env=dict(os.environ,PYTHONPATH=str(guard),OMP_NUM_THREADS='1',MKL_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1');reports=[]
- commands=[['reproduce.py','--from-results','--skip-tex','--output',str(temp/'plots')],['reproduce.py','--smoke','--output',str(temp/'smoke')],['tests/verify_published.py',str(temp/'checks')]]
+ env=dict(os.environ,PYTHONPATH=os.pathsep.join(filter(None,[str(guard),os.environ.get('PYTHONPATH','')])),OMP_NUM_THREADS='1',MKL_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1');reports=[]
+ commands=[['reproduce.py','--from-results','--output',str(temp/'plots')],['reproduce.py','--smoke','--output',str(temp/'smoke')],['tests/verify_published.py',str(temp/'checks')]]
  for i,args in enumerate(commands):
   with (a.output/f'command_{i}.log').open('w') as h:subprocess.run([sys.executable,str(repo/args[0]),*args[1:]],cwd=temp,env=env,stdout=h,stderr=subprocess.STDOUT,check=True)
   reports.append({'command':args,'status':'PASS'})

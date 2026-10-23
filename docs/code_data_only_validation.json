@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-23",
+  "base_commit": "f1a1712b714b86cfc1ad9bc90644bff3ced190c4",
+  "status": "PASS",
+  "scope": "Code/data packaging, supplied-observation replay, small integration tests; full training not repeated",
+  "removed_publication_files": [
+    "manuscript/arxiv.sty",
+    "manuscript/figs/supp_training_cost.pdf",
+    "manuscript/modularity.pdf",
+    "manuscript/modularity.tex",
+    "manuscript/newfig/main_fig1.pdf",
+    "manuscript/newfig/main_fig2.pdf",
+    "manuscript/newfig/main_fig3.pdf",
+    "manuscript/newfig/main_fig4.pdf",
+    "manuscript/newfig/main_fig5.pdf",
+    "manuscript/newfig/main_fig6.pdf",
+    "manuscript/ref.bib",
+    "manuscript/sup.pdf",
+    "manuscript/sup.tex"
+  ],
+  "backup_verified": true,
+  "existing_tracked_files_unchanged": 63,
+  "modified_existing_files": [
+    ".gitignore",
+    "README.md",
+    "docs/validation.md",
+    "reproduce.py",
+    "scripts/isolation_check.py"
+  ],
+  "scientific_code_configs_data_results_unchanged": true,
+  "validation": {
+    "from_results": "PASS",
+    "six_main_figures_and_cost_diagnostic": "PASS",
+    "smoke": "PASS",
+    "published_statistics": "PASS",
+    "unit_tests": {
+      "passed": 2
+    },
+    "isolation": "PASS",
+    "isolation_mechanism": "Python audit hook in copied repository, not OS sandbox; original repository and formal presub/newfig paths denied"
+  },
+  "generated_pdfs": [
+    {
+      "file": "main_fig1.pdf",
+      "pages": 1,
+      "bytes": 1565049,
+      "sha256": "8d08a5edf3def9918601a623220954b5fb8dc78ab27cb1ddff3a2c6d89098435"
+    },
+    {
+      "file": "main_fig2.pdf",
+      "pages": 1,
+      "bytes": 1394531,
+      "sha256": "eb0ffb43a5802e629963125a555b2a044ad8fdeed63b6970eefab450e1676ad1"
+    },
+    {
+      "file": "main_fig3.pdf",
+      "pages": 1,
+      "bytes": 102966,
+      "sha256": "59667e303820986224d26c754043dfad051a35cc379e91ff08d239d9666cebf0"
+    },
+    {
+      "file": "main_fig4.pdf",
+      "pages": 1,
+      "bytes": 302653,
+      "sha256": "5bbfe2a28c2778c9c7c4fa1a90b6ec091ccbc4ec5f678794fc4da725d26265e9"
+    },
+    {
+      "file": "main_fig5.pdf",
+      "pages": 1,
+      "bytes": 95655,
+      "sha256": "37fa754cb2e64d0d0779ee5905dea1d5716d657586650822adc6434252dae693"
+    },
+    {
+      "file": "main_fig6.pdf",
+      "pages": 1,
+      "bytes": 85484,
+      "sha256": "b80e0dbf031c9df0fbee51fee4b29f33040e29bbfa4c8ee38c95b189b2bf76bb"
+    },
+    {
+      "file": "supp_training_cost.pdf",
+      "pages": 1,
+      "bytes": 12195,
+      "sha256": "6fc4b2621f796208487bc511ceeb5faa98ace694c33add8778428cd0e18b739d"
+    }
+  ],
+  "python_version": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]",
+  "full_training_repeated": false
+}
