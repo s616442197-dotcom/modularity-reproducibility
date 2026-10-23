@@ -417,9 +417,11 @@ def format_p_value(value: float) -> str:
     return "p = {:.3f}".format(value)
 
 
-def draw_trial_scatter(ax, rows: list[dict[str, Any]]) -> tuple[float, float]:
+def draw_trial_scatter(ax, rows: list[dict[str, Any]], *, accuracy_on_x: bool = False) -> tuple[float, float]:
     x_values = np.asarray([float(row["weight_ratio_delta"]) * 1e4 for row in rows], dtype=float)
     y_values = np.asarray([float(row["accuracy_delta"]) for row in rows], dtype=float)
+    if accuracy_on_x:
+        x_values, y_values = y_values, x_values
     rule_values = np.asarray([int(row["rule"]) for row in rows], dtype=int)
     finite = np.isfinite(x_values) & np.isfinite(y_values)
 
@@ -456,8 +458,10 @@ def draw_trial_scatter(ax, rows: list[dict[str, Any]]) -> tuple[float, float]:
 
     ax.axvline(0.0, color="#777777", linewidth=0.75, alpha=0.65, zorder=0)
     ax.axhline(0.0, color="#777777", linewidth=0.75, alpha=0.65, zorder=0)
-    ax.set_xlabel(r"Target-rule retained weight-ratio change ($\times 10^{-4}$)")
-    ax.set_ylabel("Target-rule accuracy change")
+    weight_label = r"Target-rule retained weight-ratio change ($\times 10^{-4}$)"
+    accuracy_label = "Target-rule accuracy change"
+    ax.set_xlabel(accuracy_label if accuracy_on_x else weight_label)
+    ax.set_ylabel(weight_label if accuracy_on_x else accuracy_label)
     ax.set_title("Paired trial-level response", loc="left", pad=8, fontweight="bold")
     ax.grid(True, color="#D9D9D9", linewidth=0.5, alpha=0.7)
     ax.set_axisbelow(True)

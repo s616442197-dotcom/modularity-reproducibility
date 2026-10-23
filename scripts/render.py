@@ -150,25 +150,26 @@ def render(data,out):
   assert a.shape[0]==30;violin(ax,a,colors,['0','1','2','3','5','10','15'],aligned=True);ax.set_xlabel('$l$');ax.set_ylabel(yl);label(ax,letter)
   legend(ax,colors,names,loc='upper center',bbox_to_anchor=(.5,1.32),fontsize=5,ncol=2)
  save(fig,out,4)
+ style()
  metrics_rw=recompute_ruleweight(json.loads((data/'ruleweight_runs.json').read_text()));rw.OUTPUT_ROOT=out;summary=rw.write_summary_tables(metrics_rw)
  matrices=f6.figure_matrices(summary);fig=plt.figure(figsize=(7.5,5.8));axs=[]
  for i,m in enumerate(matrices):
   ax=fig.add_axes([.09+i*.31,.64,.20,.27]);axs.append(ax)
   f6.draw_heatmap(fig,ax,m*(1e4 if i==1 else 1),'','',['Accuracy change','Weight-fraction change (×10⁻⁴)','Specialization margin'][i],'{:+.2f}' if i<2 else '{:.2f}','RdBu_r' if i<2 else 'viridis',i<2)
-  fig.axes[-1].remove();ax.set_aspect('auto');ax.set_position([.09+i*.31,.64,.20,.27]);cb=fig.add_axes([.09+i*.31,.52,.20,.015]);fig.colorbar(ax.images[0],cax=cb,orientation='horizontal');cb.set_xlabel(['Accuracy change','Weight-fraction change (×10⁻⁴)','Specialization margin'][i],fontsize=6);ax.set_xlabel('Evaluated rule');ax.set_ylabel('Upweighted rule');label(ax,'abc'[i])
+  fig.axes[-1].remove();ax.set_aspect('auto');ax.set_position([.09+i*.31,.64,.20,.27]);cb=fig.add_axes([.09+i*.31,.52,.20,.015]);fig.colorbar(ax.images[0],cax=cb,orientation='horizontal');cb.set_xlabel(['Accuracy change','Weight-fraction change (×10⁻⁴)','Specialization margin'][i],fontsize=6);ax.set_xlabel('Evaluated rule' if i==0 else 'token-defining rule');ax.set_ylabel('Upweighted rule');label(ax,'abc'[i])
  a=fig.add_axes([.10,.12,.34,.25]);b=fig.add_axes([.63,.12,.33,.25]);x,y,xe,ye=f6.matched_target_statistics(summary)
  for i in range(5):a.errorbar(x[i],y[i]*1e4,xerr=xe[i],yerr=ye[i]*1e4,fmt='o',color=RULE[i],ms=4,capsize=2)
  xx=np.linspace(min(x),max(x),50);a.plot(xx,np.polyval(np.polyfit(x,y*1e4,1),xx),'--',c='.4');a.text(.02,.95,f'Pearson r = {np.corrcoef(x,y)[0,1]:.2f}',va='top',transform=a.transAxes)
- trials=f6.paired_trial_rows(metrics_rw);f6.draw_trial_scatter(b,trials)
+ trials=f6.paired_trial_rows(metrics_rw);f6.draw_trial_scatter(b,trials,accuracy_on_x=True)
  b.set_title('',loc='left')
  for t in list(b.texts):
   if t.get_text()=='e':t.remove()
  for ax,l in [(a,'d'),(b,'e')]:label(ax,l)
  a.set_xlabel('Accuracy change');a.set_ylabel('Retained-weight\nchange (×10⁻⁴)')
- b.set_xlabel('Retained-weight change (×10⁻⁴)');b.set_ylabel('Accuracy change')
+ b.set_xlabel('Accuracy change');b.set_ylabel('Retained-weight\nchange (×10⁻⁴)')
  handles,names=b.get_legend_handles_labels()
  if b.get_legend():b.get_legend().remove()
- fig.legend(handles,names,loc='lower center',bbox_to_anchor=(.795,.005),ncol=3,frameon=False,fontsize=5.5,columnspacing=.7,handletextpad=.3)
+ fig.legend(handles,names,loc='lower center',bbox_to_anchor=(.795,.005),ncol=5,frameon=False,fontsize=5.5,columnspacing=.7,handletextpad=.3)
  save(fig,out,5)
  # Recomposition graph is preserved as an editable plotting function; quantitative panels are recomputed.
  import manuscript_figures as mf
